@@ -290,25 +290,29 @@
                 <div class="form-group">
                     <label class="form-label" for="nombre">Nombres *</label>
                     <input class="form-input" type="text" id="nombre" name="nombre" placeholder="ingrese su nombre">
+                    <div class="error-message" id="error-nombre"></div>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="apellido">Apellidos *</label>
                     <input class="form-input" type="text" id="apellido" name="apellido" placeholder="ingrese su apellido">
+                    <div class="error-message" id="error-apellido"></div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label class="form-label" for="fecha_nacimiento">Fecha de Nacimiento *</label>
                     <input class="form-input" type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+                    <div class="error-message" id="error-fecha-nacimiento"></div>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="genero">Género *</label>
                     <select class="form-select" id="genero" name="genero">
                         <option value="" disabled selected>Seleccionar</option>
                         <option value="masculino">Masculino</option>
-                  	<option value="femenino">Femenino</option>
-                  	<option value="otro">Otro</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="otro">Otro</option>
                     </select>
+                    <div class="error-message" id="error-genero"></div>
                 </div>
             </div>
             <div class="form-row">
@@ -318,6 +322,7 @@
                         <option value="" disabled selected>Seleccionar</option>
                         <option value="VE">Venezuela</option>
                     </select>
+                    <div class="error-message" id="error-nacionalidad"></div>
                 </div>
             </div>
         </div>
@@ -330,16 +335,19 @@
                     <select class="form-select" id="tipo_documento" name="tipo_documento">
                         <option value="Pasaporte">Pasaporte</option>
                     </select>
+                    <div class="error-message" id="error-tipo-documento"></div>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="numero_documento">Número de Documento *</label>
                     <input class="form-input" type="text" id="numero_documento" name="numero_documento">
+                    <div class="error-message" id="error-numero-documento"></div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label class="form-label" for="fecha_vencimiento">Fecha de Vencimiento *</label>
                     <input class="form-input" type="date" id="fecha_vencimiento" name="fecha_vencimiento">
+                    <div class="error-message" id="error-fecha-vencimiento"></div>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="pais_emision">País de Emisión *</label>
@@ -347,6 +355,7 @@
                         <option value="" disabled selected>Seleccionar</option>
                         <option value="VE">Venezuela</option>
                     </select>
+                    <div class="error-message" id="error-pais-emision"></div>
                 </div>
             </div>
         </div>
@@ -359,8 +368,8 @@
                     <select class="form-select" id="asistencia" name="asistencia">
                         <option value="" disabled selected>sin seleccionar</option>
                         <option>Se necesita silla de ruedas (no puede subir ni bajar escaleras)</option>
-                  	<option>Se necesita silla de ruedas (puede subir ni bajar escaleras)</option>
-                  	<option>silla de ruedas (inmovil)</option>
+                        <option>Se necesita silla de ruedas (puede subir ni bajar escaleras)</option>
+                        <option>silla de ruedas (inmovil)</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -384,6 +393,7 @@
                 <div class="form-group">
                     <label class="form-label" for="mano">Maleta de Mano *</label>
                     <input class="form-input" type="number" id="mano" name="mano" placeholder="peso (kg)">
+                    <div class="error-message" id="error-mano"></div>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="bodega">Maleta de Bodega</label>
@@ -401,20 +411,24 @@
                         <option value="" disabled selected>Seleccionar</option>
                         <option value="VE">Venezuela</option>
                     </select>
+                    <div class="error-message" id="error-pais-residencia"></div>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="numero_telefono">Número de Teléfono *</label>
                     <input class="form-input telefono" type="tel" id="numero_telefono" name="numero_telefono" placeholder="ingrese su numero">
+                    <div class="error-message" id="error-numero-telefono"></div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label class="form-label" for="correo">Correo Electrónico *</label>
                     <input class="form-input" type="email" id="correo" name="correo" placeholder="correo electronico">
+                    <div class="error-message" id="error-correo"></div>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="direccion">Dirección *</label>
                     <input class="form-input" type="text" id="direccion" name="direccion" placeholder="Estado, Ciudad">
+                    <div class="error-message" id="error-direccion"></div>
                 </div>
             </div>
         </div>
