@@ -196,9 +196,12 @@ enter_form.addEventListener("click", function(event) {
     }
 
     if (isValid) {
-        // Si todo es válido, puedes proceder a enviar el formulario o realizar otras acciones
         alert('Formulario enviado correctamente.');
-        // Aquí puedes usar JavaScript para enviar el formulario o hacer algo más
+
+        // pasamos a la vista de reservar el asiento del vuelo
+        document.querySelector('#formulario').classList.remove('visible');
+        document.querySelector('#reserva').classList.add('visible');
+        
     }
     
 }); 
