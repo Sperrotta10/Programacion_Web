@@ -1,0 +1,842 @@
+<!-- main.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/styles.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="estilos/landing_styles.css">
+    <link rel="stylesheet" href="estilos/form_styles.css" type="text/css">
+    <link rel="stylesheet" href="tabla_registros.css" type="text/css">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.1.0/build/css/intlTelInput.css">-->
+
+    <title>Reserva</title>
+
+    <style>
+        /*
+        body{
+            font-family: 'Montserrat',sans-serif;
+            width: 95%;
+        }
+        */
+
+        .section {
+            display: none;
+            text-align: center;
+        }
+        .visible {
+            display: block;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+
+
+    <!-- ================================================  PAGINA PRINCIPAL   ========================================================= -->
+    <div id="landing-content" class="section visible">   
+        <section class="welcome-section">
+            <div class="content-wrapper">
+                <div class="welcome-content">
+                <div class="welcome-text">
+                    <h1 class="welcome-title">Bienvenido a Angel Airlines</h1>
+                    <p class="welcome-description">Viaja por la hermosa Venezuela de la mejor manera.</p>
+                </div>
+                <img src="Assets\aerolinea.png" alt="Welcome image" class="welcome-image" loading="lazy">
+                </div>
+            </div>
+          <div class="search-section">
+            <div class="search-options">
+              <div class="search-option">
+                <img src="Assets\usuario.png" alt="Adults icon" class="option-icon" loading="lazy">
+                <div class="form-group">
+                    <label for="boleto" class="form-label">Boleto</label>
+                    <select id="boleto" class="form-select" required>
+                      <option value="" selected>Adulto (desde 13 años)</option>
+                      <option value="masculino">Niños (3-12 años)</option>
+                      <option value="femenino">Infantes (0-2 años)</option>
+                    </select>
+                </div>
+              </div>
+              <div class="search-option">
+                <img src="Assets\flechas_dobles.png" alt="Round trip icon" class="option-icon" loading="lazy">
+                <div class="form-group">
+                    <label for="viaje" class="form-label">Viaje</label>
+                    <select id="viaje" class="form-select" required>
+                      <option value="" selected>Solo Ida</option>
+                      <option value="masculino">Ida y Vuelta</option>
+                    </select>
+                </div>
+              </div>
+
+              <div class="search-option">
+                <img src="Assets\calendario.png" alt="Calendar icon" class="option-icon" loading="lazy">
+                
+                <div class="form-group">
+                    <label for="fecha_salida" class="form-label">Fecha de Salida </label>
+                    <input id="fecha_salida" type="date" class="form-input" placeholder="DD-MM-AAAA" required>
+                </div>
+
+              </div>
+            </div>
+            <div class="search-fields">
+              <div class="search-field">
+                <img src="Assets\despegue-del-avion.png" alt="Origin icon" class="field-icon" loading="lazy">
+                <div class="form-group">
+                    <label for="origen" class="form-label">Origen</label>
+                    <select id="origen" class="form-select" required>
+                      <option value="" selected>Valencia</option>
+                      <option value="masculino">Caracas</option>
+                    </select>
+                </div>
+                
+              </div>
+              <div class="search-field">
+                <img src="Assets\aterrizaje-de-avion.png" alt="Destination icon" class="field-icon" loading="lazy">
+                <div class="form-group">
+                    <label for="destino" class="form-label">Destino</label>
+                    <select id="destino" class="form-select" required>
+                    <option value="" selected>Valencia</option>
+                    <option value="masculino">Caracas</option>
+                    </select>
+                </div>
+              </div>
+              <div class="search-field">
+                <img src="Assets\calendario.png" alt="Calendar icon" class="field-icon" loading="lazy">
+                <div class="form-group">
+                    <label for="fecha_llegada" class="form-label">Fecha de Llegada</label>
+                    <input id="fecha_llegada" type="date" class="form-input" placeholder="DD-MM-AAAA" required>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <button class="search-button" onclick="mostrarFormulario()">Buscar Vuelos</button>
+
+        </section>
+        
+        <section class="gallery-section">
+          <div class="gallery-wrapper">
+                <div class="gallery-content">
+                    <div class="gallery-images">
+                            <div class="gallery-column">
+                                <img src="Assets\salto_angel.png" alt="Salto del Angel" class="gallery-image" loading="lazy" id="SaltoAngel">
+                            </div>
+                            <div class="gallery-column">
+                                <img src="Assets\medanos.png" alt="Medanos de Coro" class="gallery-image" loading="lazy">
+                            </div>
+                            <div class="gallery-column">
+                                <img src="Assets\roques.png" alt="Los Roques" class="gallery-image" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Anuncio-text">
+                        <h1 class="Anuncio-title">Explora Venezuela</h1>
+                        <p class="Anuncio-description">Viaja por la hermosa Venezuela de la mejor manera.</p>
+                    </div>
+                </div>
+          
+        </section>
+        
+        <section class="features-section">
+          <div class="features-wrapper">
+            <div class="features-header">
+              <div class="features-text">
+                <h2 class="features-title">Reservacion de Vuelo</h2>
+                <p class="features-description">Permite a los usuarios buscar y reservar viajes a cualquier parte de Venezuela.</p>
+              </div>
+              <img src="Assets\reserva-en-linea.png" alt="Features icon" class="features-icon" loading="lazy">
+            </div>
+            <div class="features-grid">
+                <div class="features-row1">
+                    <div class="feature-item">
+                        <h3 class="feature-title">Facil</h3>
+                        <p class="feature-description">Reserva tus vuelos con solo unos clicks.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 class="feature-title">Opciones Flexibles</h3>
+                        <p class="feature-description">Exiten una gran cantidad de destinos para viajar dentro de Venezuela.</p>
+                    </div>
+                </div>
+                <div class="features-row2">
+                    <div class="feature-item">
+                        <h3 class="feature-title">Precios Competitivos</h3>
+                        <p class="feature-description">Encuentra los mejores precios para los viajes a tus destinos favoritos.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3 class="feature-title">Disponibilidad al momento.</h3>
+                        <p class="feature-description">Encuentra la disponibilidad de los asientos de tu vuelo en tiempo real.</p>
+                    </div>
+                </div>
+            </div>
+            
+          </div>
+        </section>
+        
+        <section class="services-section">
+          <div class="services-wrapper">
+            <div class="services-header">
+              <div class="services-content">
+                <img src="Assets\avion.png" alt="Services icon" class="services-icon" loading="lazy">
+                <div class="services-text">
+                  <h2 class="services-title">Servicios de Vuelo</h2>
+                  <p class="services-description">Puedes elegir distintos servicios para antes, durante y después de viajar con nosotros.</p>
+                </div>
+              </div>
+            </div>
+            <div class="services-grid">
+                <div class="services-row1">
+                    <div class="service-item">
+                        <h3 class="service-title">Comidas Gourmet</h3>
+                        <p class="service-description">Una amplia selección de platos disponibles para ti.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3 class="service-title">Entretenimiento</h3>
+                        <p class="service-description">Disfruta de un catálogo repleto de todo tipo de series, peliculas y canciones mientras viajas.</p>
+                    </div>
+                </div>
+                <div class="services-row2">
+                    <div class="service-item">
+                        <h3 class="service-title">Traslado para lesionados</h3>
+                        <p class="service-description">Puedes pedir un servicio de traslado en silla de ruedas para personas que sufran de alguna discapacidad.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3 class="service-title">Conexión Wi-Fi</h3>
+                        <p class="service-description">Mantente conectado a tus seres queridos mientras viajas con nuestro Wi-Fi libre para pasajeros.</p>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="terms-section">
+          <div class="terms-wrapper">
+            <div class="terms-content">
+              <div class="terms-text">
+                <img src="Assets\terminos.png" alt="Terms icon" class="terms-icon" loading="lazy">
+                <div class="terms-info">
+                  <h2 class="terms-title">Lea nuestros términos y condiciones</h2>
+                  <p class="terms-description">Informece con nuestros términos y condiciones para tener una experiencia de viaje más cómoda y si inconvenientes</p>
+                </div>
+              </div>
+              <button class="terms-button">
+                Leer
+                <img id="flechita" src="Assets\flecha-hacia-abajo-para-navegar.png" alt="Read icon" class="read-icon" loading="lazy">
+              </button>
+            </div>
+          </div>
+        </section>
+        
+        <section class="contact-section">
+          <div class="contact-content">
+            <div class="contact-info">
+              <h2 class="contact-title">Contáctenos</h2>
+              <p class="contact-detail">Phone: +58-424-409-2127</p>
+              <p class="contact-detail">Email: FlyHigh@airline.com</p>
+            
+              <p class="contact-detail">Social Media</p>
+              <p class="contact-detail">
+                Facebook: @FlyHigh<br>
+                Twitter: @FlyHigh<br>
+                Instagram: @FlyHighOfficial
+              </p>
+            </div>
+            <form class="contact-form">
+              <h3 class="form-title">Más informacion</h3>
+              <div class="form-fields">
+                <div class="form-field">
+                  <label for="name" class="field-label">Name</label>
+                  <input type="text" id="name" class="field-input" placeholder="Manu">
+                </div>
+                <div class="form-field">
+                  <label for="surname" class="field-label">Surname</label>
+                  <input type="text" id="surname" class="field-input" placeholder="Deowo">
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="email" class="field-label">Mail</label>
+                <input type="email" id="email" class="field-input" placeholder="manudeowo@mail.net">
+              </div>
+              <div class="form-field">
+                <label for="address" class="field-label">Address</label>
+                <input type="text" id="address" class="field-input" placeholder="Carabobo, VE">
+              </div>
+              <div class="form-field">
+                <label for="description" class="field-label">Description</label>
+                <textarea id="description" class="field-input"></textarea>
+              </div>
+              <button type="submit" class="submit-button">Submit</button>
+            </form>
+          </div>
+        </section>
+      </div>
+
+
+      <!-- ===================================================================================================================== -->
+
+
+      <!-- ================================================  PAGINA FORMULARIO VUELO   ========================================================= -->
+
+
+      <div id="formulario" class="section">
+        <div class="airline-name">Nombre aerolinea</div>
+        <div class="passenger-type">Tipo de Pasajero (Adulto, niño, infante)</div>
+        <div class="divider"></div>
+        <div class="passenger-info">
+            <div class="section-title">Información del Pasajero</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="nombre">Nombres *</label>
+                    <input class="form-input" type="text" id="nombre" name="nombre" placeholder="ingrese su nombre">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="apellido">Apellidos *</label>
+                    <input class="form-input" type="text" id="apellido" name="apellido" placeholder="ingrese su apellido">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="fecha_nacimiento">Fecha de Nacimiento *</label>
+                    <input class="form-input" type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="genero">Género *</label>
+                    <select class="form-select" id="genero" name="genero">
+                        <option value="" disabled selected>Seleccionar</option>
+                        <option value="masculino">Masculino</option>
+                  	<option value="femenino">Femenino</option>
+                  	<option value="otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label nacionalidad_label" for="nacionalidad">Nacionalidad *</label>
+                    <select class="form-select" id="nacionalidad" name="nacionalidad">
+                        <option value="" disabled selected>Seleccionar</option>
+                        <option value="VE">Venezuela</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="passenger-info">
+            <div class="section-title">Documentación de Viaje</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="tipo_documento">Tipo de Documento *</label>
+                    <select class="form-select" id="tipo_documento" name="tipo_documento">
+                        <option value="Pasaporte">Pasaporte</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="numero_documento">Número de Documento *</label>
+                    <input class="form-input" type="text" id="numero_documento" name="numero_documento">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="fecha_vencimiento">Fecha de Vencimiento *</label>
+                    <input class="form-input" type="date" id="fecha_vencimiento" name="fecha_vencimiento">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="pais_emision">País de Emisión *</label>
+                    <select class="form-select" id="pais_emision" name="pais_emision">
+                        <option value="" disabled selected>Seleccionar</option>
+                        <option value="VE">Venezuela</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="passenger-info">
+            <div class="section-title">Servicios de Vuelo</div>
+            <div class="servicios_vuelo">
+                <div class="form-group">
+                    <label class="form-label" for="asistencia">Asistencia Especial</label>
+                    <select class="form-select" id="asistencia" name="asistencia">
+                        <option value="" disabled selected>sin seleccionar</option>
+                        <option>Se necesita silla de ruedas (no puede subir ni bajar escaleras)</option>
+                  	<option>Se necesita silla de ruedas (puede subir ni bajar escaleras)</option>
+                  	<option>silla de ruedas (inmovil)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="preferencias">Preferencias de Comida</label>
+                    <select class="form-select" id="preferencias" name="preferencias">
+                        <option value="" disabled selected>Sin preferencias</option>
+                        <option>Vegetariana</option>
+                        <option>asiatico</option>
+                        <option>Mariscos</option>
+                        <option>musulmal</option>
+                        <option>indu</option>
+                        <option>Bajo en grasas</option>
+                        <option>Bajo en calorias</option>
+                        <option>Bajo en proteinas</option>
+                        <option>Bajo en sodio</option>
+                        <option>Sin gluten</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="mano">Maleta de Mano *</label>
+                    <input class="form-input" type="number" id="mano" name="mano" placeholder="peso (kg)">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="bodega">Maleta de Bodega</label>
+                    <input class="form-input" type="number" id="bodega" name="bodega" placeholder="peso (kg)">
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="passenger-info">
+            <div class="section-title">Datos de Contacto</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="pais_residencia">País de Residencia *</label>
+                    <select class="form-select" id="pais_residencia" name="pais_residencia">
+                        <option value="" disabled selected>Seleccionar</option>
+                        <option value="VE">Venezuela</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="numero_telefono">Número de Teléfono *</label>
+                    <input class="form-input telefono" type="tel" id="numero_telefono" name="numero_telefono" placeholder="ingrese su numero">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="correo">Correo Electrónico *</label>
+                    <input class="form-input" type="email" id="correo" name="correo" placeholder="correo electronico">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="direccion">Dirección *</label>
+                    <input class="form-input" type="text" id="direccion" name="direccion" placeholder="Estado, Ciudad">
+                </div>
+            </div>
+        </div>
+        <div class="form-buttons">
+            <button class="form-regresar" onclick="mostrarPrincipal()">CANCELAR</button>
+            <button class="form-continuar">Continuar Reservacion</button>
+        </div>
+    </div>
+
+
+      <!-- ======================================================================================================================= -->
+
+
+      <!-- ================================================  PAGINA RESERVA DE ASIENTO DEL VUELO   ========================================================= -->
+
+
+      <div id="reserva" class="section">       
+        <header class="airline-name">Nombre de la Aerolinea</header>
+        <main class="main-container">
+            <div class="content-wrapper">
+                <section class="reservation-section">
+                  <h1 class="reservation-title">Reservacion de Asientos</h1>
+                  <p class="flight-info">Información del vuelo:</p>
+                  <div class="flight-details">
+                      <div class="flight-code">Codigo de Vuelo</div>
+                      <div class="flight-departure">Ida</div>
+                      <div class="flight-return">Vuelta</div>
+                      <div class="flight-destination">Destino</div>
+                  </div>
+                  <div class="flight-data">
+                      <div class="flight-number">AA100</div>
+                      <div class="flight-dates">
+                      <div>10/07/24</div>
+                      <div>20/07/24</div>
+                      <div>Tokyo, Japón.</div>
+                      </div>
+                  </div>
+                  <div class="seat-info">
+                      <div>Asiento Reservado:</div>
+                      <div class="numero-asiento"></div>
+                      <div class="numero-asiento" id="asiento_reservado"></div>
+                  </div>
+
+                  <button id="mostrar_tabla" class="show-button" onclick="">Mostrar Reservas</button>
+                  <div class="modal-container" id="modal-container">
+                    <div class="modal">
+                      <center><h1 id="Titulo_tabla">Lista de pasajeros</h1></center>
+                      <table  id="miTabla">
+                        <table>
+
+                        </table>
+                      </div>
+                      <button id="cerrar_tabla" class="cerrar-button" onclick="">Cerrar</button>
+
+                    </div>
+                  </div>
+
+
+                </section>
+
+                <section class="seat-map">
+                    <div class="seat-row" id="fila30">
+                        <div class="Col2">
+                            <div id="C30" class="seat">C</div>
+                            <div id="D30" class="seat">D</div>
+                            <div id="E30" class="seat">E</div>
+                            <div id="F30" class="seat">F</div>
+                            <div id="G30" class="seat">G</div>
+                        </div>
+                        <div class="row-number">30</div>
+                    </div>
+
+                    <div class="seat-row">
+                        <div class="Col1">
+                            <div id="A31" class="seat">A</div>
+                            <div id="B31" class="seat">B</div>
+                        </div>
+                        <div class="Col2">
+                            <div id="C31" class="seat"></div>
+                            <div id="D31" class="seat"></div>
+                            <div id="E31" class="seat"></div>
+                            <div id="F31" class="seat"></div>
+                            <div id="G31" class="seat"></div>
+                        </div>
+                        <div class="Col3">
+                            <div id="H32" class="seat">H</div>
+                            <div id="J32" class="seat">J</div>
+                        </div>
+                        <div class="row-number">31</div>
+                    </div>
+
+                    <div class="seat-row">
+                        <div class="Col1">
+                            <div id="A32" class="seat"></div>
+                            <div id="B32" class="seat"></div>
+                        </div>
+                        <div class="Col2">
+                            <div id="C32" class="seat"></div>
+                            <div id="D32" class="seat"></div>
+                            <div id="E32" class="seat"></div>
+                            <div id="F32" class="seat"></div>
+                            <div id="G32" class="seat"></div>
+                        </div>
+                        <div class="Col3">
+                            <div id="H32" class="seat"></div>
+                            <div id="J32" class="seat"></div>
+                        </div>
+                        <div class="row-number">32</div>
+                    </div>
+
+                    <div class="seat-row">
+                        <div class="Col1">
+                            <div id="A33" class="seat"></div>
+                            <div id="B33" class="seat"></div>
+                        </div>
+                        <div class="Col2">
+                            <div id="C33" class="seat"></div>
+                            <div id="D33" class="seat"></div>
+                            <div id="E33" class="seat"></div>
+                            <div id="F33" class="seat"></div>
+                            <div id="G33" class="seat"></div>
+                        </div>
+                        <div class="Col3">
+                            <div id="H33" class="seat"></div>
+                            <div id="J33" class="seat"></div>
+                        </div>
+                        <div class="row-number">33</div>
+                    </div>
+
+                    <div class="seat-row">
+                        <div class="Col1">
+                            <div id="A34" class="seat"></div>
+                            <div id="B34" class="seat"></div>
+                        </div>
+                        <div class="Col2">
+                            <div id="C34" class="seat"></div>
+                            <div id="D34" class="seat"></div>
+                            <div id="E34" class="seat"></div>
+                            <div id="F34" class="seat"></div>
+                            <div id="G34" class="seat"></div>
+                        </div>
+                        <div class="Col3">
+                            <div id="H34" class="seat"></div>
+                            <div id="J34" class="seat"></div>
+                        </div>
+                        <div class="row-number">34</div>
+                    </div>
+
+                    <div class="seat-row">
+                        <div class="Col1">
+                            <div id="A35" class="seat"></div>
+                            <div id="B35" class="seat"></div>
+                        </div>
+                        <div class="Col2">
+                            <div id="C35" class="seat"></div>
+                            <div id="D35" class="seat"></div>
+                            <div id="E35" class="seat"></div>
+                            <div id="F35" class="seat"></div>
+                            <div id="G35" class="seat"></div>
+                        </div>
+                        <div class="Col3">
+                            <div id="H35" class="seat"></div>
+                            <div id="J35" class="seat"></div>
+                        </div>
+                        <div class="row-number">35</div>
+                    </div>
+                    
+                    <div class="seat-row">
+                        <div class="Col1">
+                            <div id="A36" class="seat"></div>
+                            <div id="B36" class="seat"></div>
+                        </div>
+                        <div class="Col2">
+                            <div id="C36" class="seat"></div>
+                            <div id="D36" class="seat"></div>
+                            <div id="E36" class="seat"></div>
+                            <div id="F36" class="seat"></div>
+                            <div id="G36" class="seat"></div>
+                        </div>
+                        <div class="Col3">
+                            <div id="H36" class="seat"></div>
+                            <div id="J36" class="seat"></div>
+                        </div>
+                        <div class="row-number">36</div>
+                    </div>
+                    <div class="seat-row">
+                        <div class="Col1">
+                            <div id="A37" class="seat"></div>
+                            <div id="B37" class="seat"></div>
+                        </div>
+                        <div class="Col2">
+                            <div id="C37" class="seat"></div>
+                            <div id="D37" class="seat"></div>
+                            <div id="E37" class="seat"></div>
+                            <div id="F37" class="seat"></div>
+                            <div id="G37" class="seat"></div>
+                        </div>
+                        <div class="Col3">
+                            <div id="H37" class="seat"></div>
+                            <div id="J37" class="seat"></div>
+                        </div>
+                        <div class="row-number">37</div>
+                    </div>
+
+                    <div class="seat-row">
+                        <div class="Col1">
+                            <div id="A38" class="seat"></div>
+                            <div id="B38" class="seat"></div>
+                        </div>
+                        <div class="Col2">
+                            <div id="C38" class="seat"></div>
+                            <div id="D38" class="seat"></div>
+                            <div id="E38" class="seat"></div>
+                            <div id="F38" class="seat"></div>
+                            <div id="G38" class="seat"></div>
+                        </div>
+                        <div class="Col3">
+                            <div id="H38" class="seat"></div>
+                            <div  id="J38"class="seat"></div>
+                        </div>
+                        <div class="row-number">38</div>
+                    </div>
+
+                    <div class="seat-row">
+                        <div class="Col1">
+                            <div id="A39" class="seat"></div>
+                            <div id="B39" class="seat"></div>
+                        </div>
+                        <div class="Col2">
+                            <div id="C39" class="seat"></div>
+                            <div id="D39" class="seat"></div>
+                            <div id="E39" class="seat"></div>
+                            <div id="F39" class="seat"></div>
+                            <div id="G39" class="seat"></div>
+                        </div>
+                        <div class="Col3">
+                            <div id="H39" class="seat"></div>
+                            <div id="J39" class="seat"></div>
+                        </div>
+                        <div class="row-number">39</div>
+                    </div>
+
+                    <div class="seat-row">
+                        <div class="Col1">
+                            <div id="A40" class="seat"></div>
+                            <div id="B40" class="seat"></div>
+                        </div>
+                        <div class="Col2">
+                            <div id="C40" class="seat"></div>
+                            <div id="D40" class="seat"></div>
+                            <div id="E40" class="seat"></div>
+                            <div id="F40" class="seat"></div>
+                            <div id="G40" class="seat"></div>
+                        </div>
+                        <div class="Col3">
+                            <div id="H40" class="seat"></div>
+                            <div id="J40" class="seat"></div>
+                        </div>
+                        <div class="row-number">40</div>
+                    </div>
+
+                    <div class="seat-row2">
+                        <div class="Col1">
+                            <div id="A41" class="seat"></div>
+                            <div id="B41" class="seat"></div>
+                        </div>
+                        <div class="Col2">
+                            <div id="C41" class="seat">C</div>
+                            <div id="D41" class="seat">D</div>
+                            <div id="F41" class="seat">F</div>
+                            <div id="G41" class="seat">G</div>
+                        </div>
+                        <div class="Col3">
+                            <div id="H41" class="seat"></div>
+                            <div id="J41" class="seat"></div>
+                        </div>
+                        <div class="row-number">41</div>
+                    </div>
+
+                    <div class="seat-row2">
+                        <div class="Col1">
+                            <div id="A42" class="seat"></div>
+                            <div id="B42" class="seat"></div>
+                        </div>
+                        <div class="Col2">
+                            <div id="C42" class="seat"></div>
+                            <div id="D42" class="seat"></div>
+                            <div id="F42" class="seat"></div>
+                            <div id="G42" class="seat"></div>
+                        </div>
+                        <div class="Col3">
+                            <div id="H42" class="seat"></div>
+                            <div id="J42" class="seat"></div>
+                        </div>
+                        <div class="row-number">42</div>
+                    </div>
+
+                    <div class="seat-row2">
+                        <div class="Col1">
+                            <div id="A43" class="seat"></div>
+                            <div id="B43" class="seat"></div>
+                        </div>
+                        <div class="Col2">
+                            <div id="C43" class="seat"></div>
+                            <div id="D43" class="seat"></div>
+                            <div id="F43" class="seat"></div>
+                            <div id="G43" class="seat"></div>
+                        </div>
+                        <div class="Col3">
+                            <div id="H43" class="seat"></div>
+                            <div id="J43" class="seat"></div>
+                        </div>
+                        <div class="row-number">43</div>
+                    </div>
+
+                    <div class="seat-row2" id="fila44">
+                        <div class="Col1">
+        
+                            <div class="seat" id="Bath"><img id="imagen" src="Assets\toilet.png" alt="Baños"></div>
+                        </div>
+                        <div class="Col2">
+                            <div id="C44" class="seat"></div>
+                            <div id="D44" class="seat"></div>
+                            <div id="F44" class="seat"></div>
+                            <div id="G44" class="seat"></div>
+                        </div>
+                        <div class="row-number">44</div>
+                        <div class="Col3-bath">
+                            <div class="seat" id="Bath"><img id="imagen" src="Assets\toilet.png" alt="Baños"></div>
+                            
+                        </div>
+                    
+                </div>
+
+                <div class="seat-row2" >
+                    
+                    <div class="Col2">
+                        <div id="C45" class="seat"></div>
+                        <div id="D45" class="seat"></div>
+                        <div id="F45" class="seat"></div>
+                        <div id="G45" class="seat">  </div>
+                    </div>
+                        
+                    <div class="row-number">45</div>
+                </div>
+
+                <div class="action-buttons">
+
+                  <button class="confirm-button">CONFIRMAR</button>
+                  <button class="cancel-button"  onclick="mostrarFormulario2()">CANCELAR</button>
+
+                </div>
+            </section>
+            </div>
+        </main>
+    </div>
+
+
+
+    <!-- ============================================================================================================================= -->
+
+
+
+    <!-- ================================================  PAGINA DE PAGI DEL VUELO   ========================================================= -->
+
+
+    <div id="Pago" class="section">
+      <div class="passenger-info">
+          <form class="validaciones_pago">
+              <h2>Pago</h2>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nombres" class="form-label">Nombre Completo del Titular *</label>
+                  <input id="nombres" type="text" class="form-input" placeholder="Nombres" pattern="[A-Za-z\s]+" required minlength="3">
+                </div>
+                
+                <div class="form-group"   >
+                  <label for="apellidos" class="form-label">Codigo de Seguridad *</label>
+                  <input id="apellidos" type="text" class="form-input" placeholder="Apellidos" pattern="[A-Za-z\s]+" required minlength="2">
+                </div>
+                
+                <div class="form-group">
+                  <label for="fechaNacimiento" class="form-label">Fecha de Vencimiento *</label>
+                  <input id="fechaNacimiento" type="date" class="form-input" placeholder="DD-MM-AAAA" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="genero" class="form-label">Tipo de Cuenta *</label>
+                  <select id="genero" class="form-select" required>
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option value="masculino">Credito</option>
+                    <option value="femenino">Debito</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="form-group" id="Nacionalidad">
+                <label for="nacionalidad" class="form-label">Metodo de Pago *</label>
+                <select id="nacionalidad" class="form-select" required>
+                  <option value="" disabled selected>Seleccionar</option>
+                  <option value="AF">Credito</option>
+                  <option value="AL">Efectivo</option>
+                  <option value="DZ">Transferencia</option>
+                  
+                </select>
+              </div>
+            </form>
+            <div class="action-buttons">
+              <button class="confirm-pago">Seguir</button>
+              <button class="cancel-pago">CANCELAR</button>
+          </div>
+      </div>
+      
+
+    </div>
+
+
+    <!-- codigo telefonicos telefonos-->
+    <!--<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.1.0/build/js/intlTelInput.min.js"></script>-->
+    <!-- Logica del documento-->
+    <script src="js/Reserva_Asientos_logica.js"></script>
+
+
+</body>
+</html>

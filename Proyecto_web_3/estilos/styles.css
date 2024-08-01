@@ -1,0 +1,249 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts\\Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+    src: url('fonts\\Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*
+body {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+}
+*/
+
+.airline-name {
+    background-color: #608cff;
+    color: #fff;
+    padding: 49px 53px;
+    font: 400 25px 'Montserrat', sans-serif;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 51px;
+    width: 100%;
+    max-width: 1200px;
+    gap: 40px;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 0px;
+}
+
+.reservation-section {
+    min-height: 500px;
+    margin: 50px;
+    flex-direction: column;
+    font-size: 16px;
+    color: #000;
+    line-height: 150%;
+    padding: 20px;
+    width: 80%;
+}
+
+.reservation-title {
+    font: 400 36px/130% 'Montserrat', sans-serif;
+    width: 100%;
+}
+
+.flight-info {
+    color: #a8a8a8;
+    margin-top: 62px;
+    font: 500 20px 'Montserrat', sans-serif;
+    float: left;
+    width: 70%;
+}
+
+.flight-details {
+    display: flex;
+    margin-top: 40px;
+    width: 100%;
+    gap: 40px;
+    color: #828282;
+    font-weight: 600;
+}
+
+.flight-code, .flight-destination {
+    font-family: 'Montserrat', sans-serif;
+    flex-grow: 1;
+    flex-basis: auto;
+}
+
+.flight-departure, .flight-return {
+    text-align: right;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.flight-data {
+    border-top: 1px solid rgba(224, 224, 224, 1);
+    display: flex;
+    margin-top: 10px;
+    width: 90%;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 16px 25px;
+}
+
+.flight-number {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.flight-dates {
+    display: flex;
+    gap: 20px;
+    font-weight: 400;
+    text-align: right;
+}
+
+.seat-info {
+    align-self: start;
+    display: flex;
+    margin-top: 72px;
+    gap: 20px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.action-buttons {
+    display: flex;
+    margin-top: 220px;
+    width: 50%;
+    max-width: 100%;
+    gap: 20px;
+    color: #fff;
+    font-weight: 500;
+    justify-content: space-between;
+}
+
+.confirm-button, .cancel-button {
+    font-family: 'Montserrat', sans-serif;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 13px 16px;
+}
+
+.confirm-button {
+    background-color: #6dda92;
+}
+
+.cancel-button {
+    background-color: #ff5454;
+}
+
+.seat-map {
+    justify-content: start;
+    border-radius: 40px;
+    background-color: #fbfbfb;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 50px;
+    margin-left: 120px;
+    padding: 10px;
+}
+
+.row-number {
+    font-family: 'Montserrat', sans-serif;
+    margin: auto 0;
+}
+
+.seat-row, .seat-row2 {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 14px;
+    width: 600px;
+    
+}
+
+#Bath{
+    background-color: #608cff;
+    width: 30px ;
+}
+
+
+
+.seat-row2 .Col1{
+    margin-right: 60px;
+}
+
+.seat-row2  .Col2{
+    margin-right: 30px;
+
+}
+
+.seat {
+    font-size: 14px;
+    background-color: #cacaca;
+    width: 18px; /* Ajustado para mejor visualización */
+    height: 18px; /* Ajustado para mejor visualización */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px;
+    border-radius: 5px; /* Combinado los dos bordes en uno solo */
+    transition: transform 0.3s ease;
+}
+
+.Col1, .Col3 {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#fila44 .Col1{
+    margin-right: 23px;
+}
+
+#fila44 .Col2{
+    margin-right: 10px;
+}
+
+#fila30{
+    margin-left: 150px;
+    align-items: center;
+justify-content: center;}
+
+#fila45{    margin-left: 160px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.Col2, .Col3 {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.Col1 {
+    margin-right: 50px;
+}
+
+.Col3 {
+    margin-left: 50px;
+}
+
+.selected-seat {
+    background-color: #ff5454;
+}
+
+.seat:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+

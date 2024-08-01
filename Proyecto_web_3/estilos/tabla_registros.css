@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts\\Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+    src: url('fonts\\Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+
+.modal-container{
+    opacity: 0;
+    box-sizing: border-box;
+    display: flex;
+    font-family: 'Montserrat',sans-serif;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    pointer-events: none;
+    height: 450px;
+    margin: 0;
+    margin-bottom: 0px;
+    
+}
+
+#Titulo_tabla{
+    font-size: 20px;
+}
+
+#miTabla{
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+}
+
+.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.show-button{
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 50px;
+    width: 170px;
+    height: 50px;
+    font-size: 14px;
+    margin-top: 40px;
+    background-color: rgb(17, 130, 179);
+}
+
+.cerrar-button{
+    border-radius: 10px;
+    color: white;
+    width: 120px;
+    height: 50px;
+    font-size: 14px;
+    background-color: rgb(17, 130, 179);
+    margin: 40px;
+    align-self: self-end;
+}
