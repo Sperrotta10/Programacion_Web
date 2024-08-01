@@ -83,8 +83,8 @@ cancelar.addEventListener("click", () => {
 const enter_form = document.querySelector(".form-continuar");
 
 // la validacion se va accionar cuando se oprima el boton
-enter_form.addEventListener("click", function(event) {
-    
+enter_form.addEventListener("click", () => {
+    alert("Hola")
     // Obtener los elementos de entrada
 
     // Informacion del Pasajero
@@ -167,11 +167,6 @@ enter_form.addEventListener("click", function(event) {
 
     if (!mano) {
         document.getElementById('error-mano').textContent = 'Por favor, ingrese el peso de la maleta de mano.';
-        isValid = false;
-    }
-
-    if (!bodega) {
-        document.getElementById('error-bodega').textContent = 'Por favor, ingrese el peso de la maleta de bodega.';
         isValid = false;
     }
 

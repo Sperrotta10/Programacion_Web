@@ -177,12 +177,6 @@ body {
 }
 
 
-/* Estilo para campos con errores */
-.form-input:invalid,
-.form-select:invalid {
-    border-color: #f44336; /* Rojo para errores */
-    box-shadow: 0 0 5px rgba(244, 67, 54, 0.5); /* Sombra roja para indicar error */
-}
 
 /* Mensaje de error */
 .error-message {
