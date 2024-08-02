@@ -187,19 +187,28 @@ img{
 }
 
 .search-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    background-color: #fff;
-    margin-top: 37px;
-    width: 305px;
-    max-width: 100%;
-    color: #5356ff;
-    text-align: center;
-    letter-spacing: -0.96px;
-    padding: 20px 60px;
-    font: 700 18px 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #fff;
+  margin-top: 37px;
+  width: 305px;
+  max-width: 100%;
+  color: #5356ff;
+  text-align: center;
+  letter-spacing: -0.96px;
+  padding: 20px 60px;
+  font: 700 18px 'Montserrat', sans-serif;
+  border: 2px solid #5356ff; /* Añadir borde para el hover */
+  transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+}
+
+.search-button:hover {
+  background-color: #5356ff; /* Cambiar el color de fondo al pasar el ratón */
+  color: #fff; /* Cambiar el color del texto al pasar el ratón */
+  transform: scale(1.05); /* Efecto de escala para resaltar el botón */
+  box-shadow: 0 4px 8px rgba(83, 86, 255, 0.3); /* Sombra al pasar el ratón */
 }
 
 .gallery-section {
@@ -432,12 +441,15 @@ img{
 }
 
 .terms-section {
-  background-color: #fff;
+  background-color: #f9f9f9; /* Color de fondo más suave */
   display: flex;
-  width: 80%;
+  width: 90%;
   flex-direction: row;
-  margin-left: 120px;
+  margin-left: auto; /* Alinear al centro */
+  margin-right: auto; /* Alinear al centro */
   padding: 80px 60px;
+  border-radius: 20px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
 .terms-wrapper {
@@ -464,10 +476,11 @@ img{
 
 .terms-icon {
   aspect-ratio: 1.03;
-  object-fit: auto;
+  object-fit: cover; /* Ajuste de la imagen */
   object-position: center;
   width: 80px;
   margin: auto 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
 .terms-info {
@@ -500,13 +513,19 @@ img{
   background-color: #5356ff;
   display: flex;
   gap: 10px;
-  font-size:18px;
+  font-size: 18px;
   color: #fff;
   font-weight: 500;
   text-align: center;
-  width: 20%;
+  width: 150px; /* Ajuste del ancho del botón */
   margin: auto 0;
-  padding: 20px ;
+  padding: 15px; /* Ajuste del padding */
+  transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+}
+
+.terms-button:hover {
+  background-color: #4345d9; /* Color de fondo al pasar el ratón */
+  transform: scale(1.05); /* Efecto de escala al pasar el ratón */
 }
 
 #flechita{
@@ -515,22 +534,27 @@ img{
     height: 20px;
 }
 
-/*
 .contact-section {
-  margin-left: 190px;
+  background-color: #ffffff; /* Fondo blanco */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 30px; /* Espaciado */
 }
-*/
 
 .contact-content {
   display: flex;
+  flex-direction: row;
   gap: 50px;
+  max-width: 1200px; /* Ancho máximo */
+  width: 100%;
 }
 
 .contact-info {
   font-size: 24px;
   color: #434343;
   font-weight: 700;
-  width: 90%;
+  width: 50%;
   letter-spacing: -0.96px;
   margin: auto 0;
 }
@@ -539,27 +563,29 @@ img{
   color: #5356ff;
   letter-spacing: -2.56px;
   font: 900 50px 'Montserrat', sans-serif;
+  margin-bottom: 20px; /* Espaciado inferior */
 }
 
 .contact-detail {
   font-family: 'Montserrat', sans-serif;
-  margin-top: 54px;
+  margin-top: 20px; /* Ajuste del margen superior */
 }
 
 .contact-form {
-  justify-content: center;
   border-radius: 20px;
-  background-color: rgba(178, 195, 255, 0.99);
+  background-color: #7ab6ff; /* Color de fondo más claro */
   display: flex;
-  flex-grow: 1;
   flex-direction: column;
   color: #434343;
-  padding: 57px ;
+  padding: 30px; /* Ajuste del padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  width: 50%; /* Ancho del formulario */
 }
 
 .form-title {
   letter-spacing: -1.6px;
   font: 900 40px 'Montserrat', sans-serif;
+  margin-bottom: 20px; /* Espaciado inferior */
 }
 
 .form-fields {
@@ -583,7 +609,7 @@ img{
 }
 
 .field_params {
-  width: 410px;
+  width: 490px;
 }
 
 
@@ -607,16 +633,20 @@ img{
 
 
 .submit-button {
-  justify-content: center;
-  align-items: center;
   border-radius: 10px;
   background-color: #5356ff;
-  margin-top: 24px;
+  margin-top: 20px; /* Ajuste del margen superior */
   color: #fff;
   text-align: center;
   letter-spacing: -0.96px;
-  padding: 30px 60px;
-  font: 700 24px 'Montserrat', sans-serif;
+  padding: 15px 30px; /* Ajuste del padding */
+  font: 700 18px 'Montserrat', sans-serif;
+  transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+}
+
+.submit-button:hover {
+  background-color: #4345d9; /* Color de fondo al pasar el ratón */
+  transform: scale(1.05); /* Efecto de escala al pasar el ratón */
 }
 
 @media (max-width: 991px) {
