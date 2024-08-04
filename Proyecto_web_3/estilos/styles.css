@@ -11,6 +11,7 @@
     padding: 0;
 }
 
+/* General Styles */
 body {
     margin: 0;
     padding: 0;
@@ -18,234 +19,284 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
+    background-color: #f5f5f5;
 }
 
-.airline-name {
-    background-color: #608cff;
-    color: #fff;
-    padding: 49px 53px;
-    font: 400 25px 'Montserrat', sans-serif;
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
 }
 
+header, main {
+    padding: 20px;
+    text-align: center;
+}
+
+header.airline-name {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px 20px;
+    font-size: 26px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Container */
 .main-container {
     display: flex;
-    flex-direction: row;
-    margin-top: 51px;
-    width: 100%;
-    max-width: 1200px;
-    gap: 40px;
+    justify-content: center;
+    padding: 20px;
 }
 
 .content-wrapper {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
     width: 100%;
-    gap: 0px;
 }
 
+/* Reservation Section */
 .reservation-section {
-    min-height: 500px;
-    margin: 50px;
-    flex-direction: column;
-    font-size: 16px;
-    color: #000;
-    line-height: 150%;
-    padding: 20px;
-    width: 80%;
+    flex: 1;
+    min-width: 300px;
+    margin-right: 20px;
 }
 
 .reservation-title {
-    font: 400 36px/130% 'Montserrat', sans-serif;
-    width: 100%;
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #007BFF;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 10px;
 }
 
+/*
+.flight-info, .flight-details, .flight-data, .seat-info {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.flight-details div, .flight-data div, .seat-info div {
+    margin: 8px 0;
+}
+*/
+
+/* Flight Info Section */
 .flight-info {
-    color: #a8a8a8;
-    margin-top: 62px;
-    font: 500 20px 'Montserrat', sans-serif;
-    float: left;
-    width: 70%;
-}
-
-.flight-details {
-    display: flex;
-    margin-top: 40px;
-    width: 100%;
-    gap: 40px;
-    color: #828282;
-    font-weight: 600;
-}
-
-.flight-code, .flight-destination {
-    font-family: 'Montserrat', sans-serif;
-    flex-grow: 1;
-    flex-basis: auto;
-}
-
-.flight-departure, .flight-return {
-    text-align: right;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.flight-data {
-    border-top: 1px solid rgba(224, 224, 224, 1);
-    display: flex;
-    margin-top: 10px;
-    width: 90%;
-    gap: 20px;
-    justify-content: space-between;
-    padding: 16px 25px;
-}
-
-.flight-number {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-}
-
-.flight-dates {
-    display: flex;
-    gap: 20px;
-    font-weight: 400;
-    text-align: right;
-}
-
-.seat-info {
-    align-self: start;
-    display: flex;
-    margin-top: 72px;
-    gap: 20px;
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.action-buttons {
-    display: flex;
-    margin-top: 220px;
-    width: 50%;
-    max-width: 100%;
-    gap: 20px;
-    color: #fff;
-    font-weight: 500;
-    justify-content: space-between;
-}
-
-.confirm-button, .cancel-button {
-    font-family: 'Montserrat', sans-serif;
-    justify-content: center;
+    background-color: white;
+    padding: 20px;
     border-radius: 8px;
-    padding: 13px 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-.confirm-button {
-    background-color: #6dda92;
+.flight-info h2 {
+    font-size: 24px;
+    color: #007BFF;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 10px;
 }
 
-.cancel-button {
-    background-color: #ff5454;
+.flight-details div, .flight-data div, .seat-info div {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
 }
 
+.flight-details div:last-child, .flight-data div:last-child, .seat-info div:last-child {
+    border-bottom: none;
+}
+
+.flight-info label {
+    font-weight: bold;
+    color: #333;
+}
+
+.flight-info span {
+    color: #555;
+}
+
+
+.show-button, .cerrar-button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.show-button {
+    background-color: #007BFF;
+    color: white;
+}
+
+.show-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.cerrar-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.cerrar-button:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+/* Seat Map */
 .seat-map {
-    justify-content: start;
-    border-radius: 40px;
-    background-color: #fbfbfb;
+    flex: 2;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    width: 100%;
-    margin: 50px;
-    margin-left: 120px;
-    padding: 10px;
-}
-
-.row-number {
-    font-family: 'Montserrat', sans-serif;
-    margin: auto 0;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .seat-row, .seat-row2 {
     display: flex;
-    flex-direction: row;
-    gap: 10px;
-    margin-top: 14px;
-    width: 600px;
-    
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-#Bath{
-    background-color: #608cff;
-    width: 30px ;
+.Col1, .Col2, .Col3, .Col3-bath {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 15px;
 }
 
-
-
-.seat-row2 .Col1{
-    margin-right: 60px;
-}
-
-.seat-row2  .Col2{
-    margin-right: 30px;
-
-}
-
-.seat {
-    font-size: 14px;
-    background-color: #cacaca;
-    width: 18px; /* Ajustado para mejor visualización */
-    height: 18px; /* Ajustado para mejor visualización */
+.seat, .seat_bath {
+    width: 35px;
+    height: 35px;
+    background-color: #ddd;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 7px;
-    border-radius: 5px; /* Combinado los dos bordes en uno solo */
-    transition: transform 0.3s ease;
+    margin-right: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.Col1, .Col3 {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
-
-#fila44 .Col1{
-    margin-right: 23px;
-}
-
-#fila44 .Col2{
-    margin-right: 10px;
-}
-
-#fila30{
-    margin-left: 150px;
-    align-items: center;
-justify-content: center;}
-
-#fila45{    margin-left: 160px;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.Col2, .Col3 {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
-
-.Col1 {
-    margin-right: 50px;
-}
-
-.Col3 {
-    margin-left: 50px;
-}
-
-.selected-seat {
-    background-color: #ff5454;
+.seat_bath {
+    width: 80px;
 }
 
 .seat:hover {
-    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
     transform: scale(1.1);
 }
 
+.row-number {
+    font-weight: bold;
+    font-size: 16px;
+    color: #007BFF;
+}
+
+#Bath #imagen {
+    width: 25px;
+    height: 22px;
+}
+
+/* Modal Styles */
+.modal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 800px;
+}
+
+#miTabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#miTabla th, #miTabla td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+#miTabla th {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.confirm-button, .cancel-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.confirm-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.confirm-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.cancel-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .reservation-section {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .seat-map {
+        align-items: flex-start;
+    }
+}

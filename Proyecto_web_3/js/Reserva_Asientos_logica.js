@@ -38,7 +38,7 @@ asientos.forEach(asiento => {
 
             // Si el asiento clicado ya está seleccionado, desmarcarlo
             asiento.classList.remove("selected");
-            asiento.style.backgroundColor = "#cacaca"; // Cambiar a color original
+            asiento.style.backgroundColor = "#ddd"; // Cambiar a color original
             nro_asiento.innerText = ""  // vaciamos el campo de texto
             asiento_seleccionado = null;
             aceptar.disabled = true;  // desabilitamos el boton
@@ -323,7 +323,7 @@ const selectorPais = document.getElementById('telefonito');
 
 // Mostrar tablas de los registros de los pasajeros
 
-const open=document.getElementById('mostrar_tabla')
+const open = document.getElementById('mostrar_tabla')
 const modal_container = document.getElementById('modal-container')
 const close = document.getElementById('cerrar_tabla')
 
