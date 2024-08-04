@@ -122,36 +122,6 @@ header.airline-name {
 }
 
 
-.show-button, .cerrar-button {
-    margin-top: 15px;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.show-button {
-    background-color: #007BFF;
-    color: white;
-}
-
-.show-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-
-.cerrar-button {
-    background-color: #dc3545;
-    color: white;
-}
-
-.cerrar-button:hover {
-    background-color: #c82333;
-    transform: scale(1.05);
-}
-
 /* Seat Map */
 .seat-map {
     flex: 2;
@@ -219,7 +189,18 @@ header.airline-name {
     background-color: rgba(0, 0, 0, 0.6);
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    box-sizing: border-box;
+    border-radius: 10px;
 }
+
+.modal-container.show {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+}
+
 
 .modal {
     background-color: white;
@@ -245,6 +226,48 @@ header.airline-name {
 #miTabla th {
     background-color: #007BFF;
     color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#Titulo_tabla{
+    font-size: 20px;
+}
+
+.cerrar-button{
+    border-radius: 10px;
+    width: 120px;
+    height: 50px;
+    font-size: 14px;
+    margin: 40px;
+    background-color: #dc3545;
+    color: white;
+    align-self: self-end;
+}
+
+.show-button, .cerrar-button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.show-button {
+    background-color: #007BFF;
+    color: white;
+}
+
+.show-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.cerrar-button:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
 }
 
 /* Action Buttons */

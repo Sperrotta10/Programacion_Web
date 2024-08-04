@@ -220,6 +220,7 @@ enviar_pago.addEventListener("click", () => {
 
         alert("Reserva del vuelo exitosa!!");
 
+        agregar_registro()
         asiento_seleccionado = null;
         nro_asiento.innerText="";  // vaciamos el campo de texto
 
@@ -340,15 +341,18 @@ close.addEventListener('click',()=>{
 // agregar registro de pasajeros
 
 function agregar_registro(){
-    const nombre = document.getElementById('nombres').value;
-    const asiento = document.getElementById('asiento_reservado').textContent
-    let tabla=document.getElementById('miTabla').insertRow(0)
-    
-    let col1 = tabla.insertCell(0)
-    let col2 = tabla.insertCell(1)
-    col1.innerHTML=nombre
-    col2.innerHTML=asiento
-    alert('alo')
+    const nombre = document.getElementById('nombre').value.trim();
+    const asiento = document.getElementById('asiento_reservado').textContent;
+    if (nombre && asiento) {
+        let tabla = document.getElementById('miTabla').insertRow();
+        let col1 = tabla.insertCell(0);
+        let col2 = tabla.insertCell(1);
+        col1.innerHTML = nombre;
+        col2.innerHTML = asiento;
+        alert('Registro agregado');
+    } else {
+        alert('Por favor, complete todos los campos.');
+    }
     
 }
 
