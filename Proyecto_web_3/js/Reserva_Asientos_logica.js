@@ -1,6 +1,8 @@
 
 // navegar al formulario (del home al form)
 function mostrarFormulario() {
+
+    
     document.getElementById('landing-content').classList.remove('visible');
     document.getElementById('formulario').classList.add('visible');
 }
@@ -67,7 +69,7 @@ aceptar.addEventListener('click', () => {
 
 cancelar.addEventListener("click", () => {
     asiento_seleccionado.classList.remove("selected");  // eliminamos la seleccion del asiento
-    asiento_seleccionado.style.backgroundColor = "#cacaca"; // Cambiar a color original
+    asiento_seleccionado.style.backgroundColor = "#ddd"; // Cambiar a color original
     nro_asiento.innerText="";  // vaciamos el campo de texto
     asiento_seleccionado = null;  // quitamos el asiento reservado
     aceptar.disabled = true;  // desabilitamos el boton
@@ -224,6 +226,8 @@ enviar_pago.addEventListener("click", () => {
         asiento_seleccionado = null;
         nro_asiento.innerText="";  // vaciamos el campo de texto
 
+
+        // vaciamos los campos del formulario
         vaciar_formulario_main()
 
         document.querySelector('#Pago').classList.remove('visible');
@@ -237,6 +241,39 @@ cancelar_pago.addEventListener("click", () => {
 })
 
 
+// Mostrar tablas de los registros de los pasajeros
+
+const open = document.getElementById('mostrar_tabla')
+const modal_container = document.getElementById('modal-container')
+const close = document.getElementById('cerrar_tabla')
+
+open.addEventListener('click',()=>{
+    modal_container.classList.add('show')
+
+})
+close.addEventListener('click',()=>{
+    modal_container.classList.remove('show')
+
+})
+
+
+// agregar registro de pasajeros
+
+function agregar_registro(){
+    const nombre = document.getElementById('nombre').value.trim();
+    const asiento = document.getElementById('asiento_reservado').textContent;
+    if (nombre && asiento) {
+        let tabla = document.getElementById('miTabla').insertRow();
+        let col1 = tabla.insertCell(0);
+        let col2 = tabla.insertCell(1);
+        col1.innerHTML = nombre;
+        col2.innerHTML = asiento;
+        alert('Registro agregado');
+    } else {
+        alert('Por favor, complete todos los campos.');
+    }
+    
+}
 
 
 /*
@@ -320,43 +357,6 @@ const selectorPais = document.getElementById('telefonito');
 
 
 */
-
-
-// Mostrar tablas de los registros de los pasajeros
-
-const open = document.getElementById('mostrar_tabla')
-const modal_container = document.getElementById('modal-container')
-const close = document.getElementById('cerrar_tabla')
-
-open.addEventListener('click',()=>{
-    modal_container.classList.add('show')
-
-})
-close.addEventListener('click',()=>{
-    modal_container.classList.remove('show')
-
-})
-
-
-// agregar registro de pasajeros
-
-function agregar_registro(){
-    const nombre = document.getElementById('nombre').value.trim();
-    const asiento = document.getElementById('asiento_reservado').textContent;
-    if (nombre && asiento) {
-        let tabla = document.getElementById('miTabla').insertRow();
-        let col1 = tabla.insertCell(0);
-        let col2 = tabla.insertCell(1);
-        col1.innerHTML = nombre;
-        col2.innerHTML = asiento;
-        alert('Registro agregado');
-    } else {
-        alert('Por favor, complete todos los campos.');
-    }
-    
-}
-
-
 
 
 /*

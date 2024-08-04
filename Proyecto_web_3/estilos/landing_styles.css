@@ -38,6 +38,7 @@ img{
 .content-wrapper {
   width: 100%;
   max-width: 1024px;
+  background: linear-gradient(180deg, #5356ff 0.5%, #202297 100%);
 }
 
 .welcome-content {
@@ -75,8 +76,13 @@ img{
 
 .Anuncio-text{
     color: #fff;
-    
+    margin-top: 20px;
     font: 600 25px 'Montserrat', sans-serif;
+}
+
+.band_vzla {
+  width: 200px;
+  height: 200px;
 }
 
 .Anuncio-description{
@@ -443,7 +449,7 @@ img{
 .terms-section {
   background-color: #f9f9f9; /* Color de fondo más suave */
   display: flex;
-  width: 90%;
+  width: 100%;
   flex-direction: row;
   margin-left: auto; /* Alinear al centro */
   margin-right: auto; /* Alinear al centro */

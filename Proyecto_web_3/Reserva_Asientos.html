@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="estilos/styles.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="estilos/landing_styles.css">
     <link rel="stylesheet" href="estilos/form_styles.css" type="text/css">
-    <link rel="stylesheet" href="tabla_registros.css" type="text/css">
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.1.0/build/css/intlTelInput.css">-->
 
     <title>Reserva</title>
@@ -37,7 +36,7 @@
 
 
     <!-- ================================================  PAGINA PRINCIPAL   ========================================================= -->
-    <div id="landing-content" class="sectiones">   
+    <div id="landing-content" class="sectiones visible">   
         <section class="welcome-section">
             <div class="content-wrapper">
                 <div class="welcome-content">
@@ -135,6 +134,9 @@
                     <div class="Anuncio-text">
                         <h1 class="Anuncio-title">Explora Venezuela</h1>
                         <p class="Anuncio-description">Viaja por la hermosa Venezuela de la mejor manera.</p>
+                        <div>
+                            <img src="Assets\band_vzla.png" alt="Venezuela" class="band_vzla" loading="lazy">
+                        </div>
                     </div>
                 </div>
           
@@ -445,7 +447,7 @@
       <!-- ================================================  PAGINA RESERVA DE ASIENTO DEL VUELO   ========================================================= -->
 
 
-      <div id="reserva" class="sectiones visible">       
+      <div id="reserva" class="sectiones">       
         <header class="airline-name">Nombre de la Aerolinea</header>
         <main class="main-container">
             <div class="content-wrapper">
@@ -800,12 +802,12 @@
               <div class="form-row">
                 <div class="form-group">
                   <label for="nombres" class="form-label">Nombre Completo del Titular *</label>
-                  <input id="nombres" type="text" class="form-input" placeholder="Nombres" pattern="[A-Za-z\s]+" required minlength="3">
+                  <input id="nombres" type="text" class="form-input" placeholder="Nombres" pattern="[A-Za-z\s]+" required>
                 </div>
                 
                 <div class="form-group"   >
                   <label for="apellidos" class="form-label">Codigo de Seguridad *</label>
-                  <input id="apellidos" type="text" class="form-input" placeholder="Apellidos" pattern="[A-Za-z\s]+" required minlength="2">
+                  <input id="apellidos" type="text" class="form-input" placeholder="Codigo" required>
                 </div>
                 
                 <div class="form-group">
@@ -834,7 +836,7 @@
                 </select>
               </div>
             </form>
-            <div class="action-buttons">
+            <div class="action-buttons2">
               <button class="confirm-pago">Seguir</button>
               <button class="cancel-pago">CANCELAR</button>
           </div>
