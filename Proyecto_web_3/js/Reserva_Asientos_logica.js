@@ -2,9 +2,55 @@
 // navegar al formulario (del home al form)
 function mostrarFormulario() {
 
+    // Obtener todos los campos del formulario
+    const boleto = document.getElementById('boleto').value;
+    const viaje = document.getElementById('viaje').value;
+    const fechaSalida = document.getElementById('fecha_salida').value;
+    const origen = document.getElementById('origen').value;
+    const destino = document.getElementById('destino').value;
+    const fechaLlegada = document.getElementById('fecha_llegada').value;
+
+    // verificar si el vuelo es de ida o es de vuelta
+    if(viaje !== "" && viaje === "solo Ida"){
+
+        // Verificar que todos los campos están rellenados
+        if (boleto === "" || fechaSalida === "" || origen === "" || destino === "") {
+            alert('Por favor, rellene los campos necesarios.');
+            return;
+        }
     
+        // Verificar que el origen es diferente del destino
+        if (origen === destino) {
+            alert('El origen debe ser diferente al destino y viceversa.');
+            return;
+        }
+
+    } else {
+
+        // Verificar que todos los campos están rellenados
+        if (boleto === "" || fechaSalida === "" || fechaLlegada === "" || origen === "" || destino === "") {
+            alert('Por favor, rellene todos los campos.');
+            return;
+        }
+        
+        // Verificar que el origen es diferente del destino
+        if (origen === destino) {
+            alert('El origen debe ser diferente al destino y viceversa.');
+            return;
+        }
+        
+        // Verificar que la fecha de salida es menor a la fecha de llegada
+        if (fechaSalida >= fechaLlegada) {
+            alert('La fecha de salida debe ser anterior a la fecha de llegada.');
+            return;
+        }
+    }
+
+    
+    // Todos los campos están llenos, puedes ejecutar la función
     document.getElementById('landing-content').classList.remove('visible');
     document.getElementById('formulario').classList.add('visible');
+        
 }
 
 // navegar al home (del formulario al home)
@@ -222,16 +268,44 @@ enviar_pago.addEventListener("click", () => {
 
         alert("Reserva del vuelo exitosa!!");
 
-        agregar_registro()
-        asiento_seleccionado = null;
-        nro_asiento.innerText="";  // vaciamos el campo de texto
+        if(agregar_registro()){
 
+            asiento_seleccionado = null;
+            nro_asiento.innerText="";  // vaciamos el campo de texto
 
-        // vaciamos los campos del formulario
-        vaciar_formulario_main()
+            // Vaciar todos los campos del formulario
+            document.getElementById('nombre').value = "";
+            document.getElementById('apellido').value = "";
+            document.getElementById('fecha_nacimiento').value = "";
+            document.getElementById('genero').value = "";
+            document.getElementById('nacionalidad').value = "";
 
-        document.querySelector('#Pago').classList.remove('visible');
-        document.querySelector('#landing-content').classList.add('visible');
+            // Documentación del viaje
+            document.getElementById('numero_documento').value = "";
+            document.getElementById('fecha_vencimiento').value = "";
+            document.getElementById('pais_emision').value = "";
+
+            // Servicios de Vuelo
+            document.getElementById('asistencia').value = "";
+            document.getElementById('preferencias').value = "";
+            document.getElementById('mano').value = "";
+            document.getElementById('bodega').value = "";
+
+            // Datos de Contacto
+            document.getElementById('pais_residencia').value = "";
+            document.getElementById('numero_telefono').value = "";
+            document.getElementById('correo').value = "";
+            document.getElementById('direccion').value = "";
+
+            document.querySelector('#Pago').classList.remove('visible');
+            document.querySelector('#landing-content').classList.add('visible');
+
+            // vaciamos los campos de formulario de la vista de pagos
+            form_validacion.reset();
+        } else {
+            return
+        }
+        
     }
 })
 
@@ -261,7 +335,7 @@ close.addEventListener('click',()=>{
 
 function agregar_registro(){
     const nombre = document.getElementById('nombre').value.trim();
-    const asiento = document.getElementById('asiento_reservado').textContent;
+    const asiento = document.querySelector('.numero-asiento').textContent;
     if (nombre && asiento) {
         let tabla = document.getElementById('miTabla').insertRow();
         let col1 = tabla.insertCell(0);
@@ -269,8 +343,10 @@ function agregar_registro(){
         col1.innerHTML = nombre;
         col2.innerHTML = asiento;
         alert('Registro agregado');
+        return true;
     } else {
-        alert('Por favor, complete todos los campos.');
+        alert('Error al crear el registro del pasajero');
+        return false;
     }
     
 }
