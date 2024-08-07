@@ -12,12 +12,6 @@
     <title>Reserva</title>
 
     <style>
-        /*
-        body{
-            font-family: 'Montserrat',sans-serif;
-            width: 95%;
-        }
-        */
 
         .sectiones {
             display: none;
@@ -36,7 +30,7 @@
 
 
     <!-- ================================================  PAGINA PRINCIPAL   ========================================================= -->
-    <div id="landing-content" class="sectiones visible">   
+    <div id="landing-content" class="sectiones ">   
         <section class="welcome-section">
             <div class="content-wrapper">
                 <div class="welcome-content">
@@ -447,31 +441,38 @@
       <!-- ================================================  PAGINA RESERVA DE ASIENTO DEL VUELO   ========================================================= -->
 
 
-      <div id="reserva" class="sectiones">       
-        <header class="airline-name">Nombre de la Aerolinea</header>
+      <div id="reserva" class="sectiones visible">       
+        <header class="airline-name">Angel Airlines</header>
         <main class="main-container">
             <div class="content-wrapper2">
                 <section class="reservation-section">
                   <h1 class="reservation-title">Reservacion de Asientos</h1>
                   <p class="flight-info">Información del vuelo:</p>
                   <div class="flight-details">
-                      <div class="flight-code">Codigo de Vuelo</div>
-                      <div class="flight-departure">Ida</div>
-                      <div class="flight-return">Vuelta</div>
-                      <div class="flight-destination">Destino</div>
+
+                    <div class="info-item">
+                        <span class="label">Número de Vuelo:</span>
+                        <span class="value">12345</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Origen:</span>
+                        <span class="value">Ciudad A</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Destino:</span>
+                        <span class="value">Ciudad B</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Fecha y Hora:</span>
+                        <span class="value">01/01/2024 10:00 AM</span>
+                    </div>
+                    
                   </div>
-                  <div class="flight-data">
-                      <div class="flight-number">AA100</div>
-                      <div class="flight-dates">
-                      <div>10/07/24</div>
-                      <div>20/07/24</div>
-                      <div>Tokyo, Japón.</div>
-                      </div>
-                  </div>
+
                   <div class="seat-info">
                       <div>Asiento Reservado:</div>
                       <div class="numero-asiento"></div>
-                      <div class="numero-asiento" id="asiento_reservado"></div>
+                      <div id="asiento_reservado"></div>
                   </div>
 
                   <button id="mostrar_tabla" class="show-button">Mostrar Reservas</button>
