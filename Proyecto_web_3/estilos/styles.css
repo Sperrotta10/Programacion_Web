@@ -75,16 +75,6 @@ header.airline-name {
     padding-bottom: 10px;
 }
 
-/*
-.flight-info, .flight-details, .flight-data, .seat-info {
-    text-align: left;
-    margin-bottom: 15px;
-}
-
-.flight-details div, .flight-data div, .seat-info div {
-    margin: 8px 0;
-}
-*/
 
 /* Flight Info Section */
 .flight-info {
@@ -101,6 +91,10 @@ header.airline-name {
     margin-bottom: 15px;
     border-bottom: 2px solid #007BFF;
     padding-bottom: 10px;
+}
+
+.flight-details {
+    margin: 10px 0px;
 }
 
 .flight-details div, .flight-data div, .seat-info div {
@@ -121,8 +115,42 @@ header.airline-name {
     color: #555;
 }
 
+.flight-info {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-weight: bold;
+    color: #333;
+}
+
+.value {
+    color: #555;
+}
+
 
 /* Seat Map */
+
+.numero-asiento {
+    height: 35px;
+}
+
 .seat-map {
     flex: 2;
     display: flex;
