@@ -132,7 +132,7 @@ const enter_form = document.querySelector(".form-continuar");
 
 // la validacion se va accionar cuando se oprima el boton
 enter_form.addEventListener("click", () => {
-    alert("Hola")
+
     // Obtener los elementos de entrada
 
     // Informacion del Pasajero
@@ -240,6 +240,8 @@ enter_form.addEventListener("click", () => {
 
     if (isValid) {
         alert('Formulario enviado correctamente.');
+
+        //
 
         // pasamos a la vista de reservar el asiento del vuelo
         document.querySelector('#formulario').classList.remove('visible');
