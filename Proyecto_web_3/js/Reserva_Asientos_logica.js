@@ -180,8 +180,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         document.querySelector(".label_vuelo").innerHTML = "Ida:"
         document.querySelector(".viaje").innerHTML = fechaSalida || ''
-        document.querySelector(".origen_vuelo").innerHTML = "Valencia"
-        document.querySelector(".destino_vuelo").innerHTML = "Caracas"
+        document.querySelector(".origen_vuelo").innerHTML = origen || ''
+        document.querySelector(".destino_vuelo").innerHTML = destino || ''
     });
 
     // evento para el boton de vuelta
@@ -208,8 +208,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         document.querySelector(".label_vuelo").innerHTML = "Vuelta:"
         document.querySelector(".viaje").innerHTML = fechaLlegada || ''
-        document.querySelector(".origen_vuelo").innerHTML = "Caracas"
-        document.querySelector(".destino_vuelo").innerHTML = "Valencia"
+        document.querySelector(".origen_vuelo").innerHTML = destino || ''
+        document.querySelector(".destino_vuelo").innerHTML = origen || ''
     });
 });
 
@@ -353,7 +353,12 @@ enter_form.addEventListener("click", () => {
     if (isValid) {
         alert('Formulario enviado correctamente.');
 
-        //
+        // agregando contenido a la informacion del vuelo de ida
+        document.querySelector(".label_vuelo").innerHTML = "Ida:"
+        document.querySelector(".viaje").innerHTML = fechaSalida || ''
+        document.querySelector(".origen_vuelo").innerHTML = origen || ''
+        document.querySelector(".destino_vuelo").innerHTML = destino || ''
+
 
         // pasamos a la vista de reservar el asiento del vuelo
         document.querySelector('#formulario').classList.remove('visible');
