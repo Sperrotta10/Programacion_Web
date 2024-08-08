@@ -207,7 +207,7 @@ header.airline-name {
     margin-right: 20px;
 }
 
-.seat-ida {
+.travel_ida, .travel_vuelta {
     display: flex;
     flex-direction: column;
     align-items: center;
