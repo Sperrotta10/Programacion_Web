@@ -1,15 +1,15 @@
 
 // navegar al formulario (del home al form)
 
-// Obtener todos los campos del formulario
-const boleto = document.getElementById('boleto').value;
-const viaje = document.getElementById('viaje').value;
-const fechaSalida = document.getElementById('fecha_salida').value;
-const origen = document.getElementById('origen').value;
-const destino = document.getElementById('destino').value;
-const fechaLlegada = document.getElementById('fecha_llegada').value;
-
 function mostrarFormulario() {
+
+    // Obtener todos los campos del formulario
+    const boleto = document.getElementById('boleto').value;
+    const viaje = document.getElementById('viaje').value;
+    const fechaSalida = document.getElementById('fecha_salida').value;
+    const origen = document.getElementById('origen').value;
+    const destino = document.getElementById('destino').value;
+    const fechaLlegada = document.getElementById('fecha_llegada').value;
 
     // verificar si el vuelo es de ida o es de vuelta
     if(viaje !== "" && viaje === "solo Ida"){
@@ -101,9 +101,18 @@ asientos_ida.forEach(asiento => {
             nro_asiento.innerText = ""  // vaciamos el campo de texto
             asiento_seleccionado = null;
 
-            if(asiento_seleccionado === null || asiento_seleccionado_vuelta === null) {
+            // verificamos si el viaje es ida y vuelta para hacer ciertas validaciones dependiendo de la situacion del vuelo
+            if(document.getElementById('viaje').value === "Ida y Vuelta"){
+
+                if(asiento_seleccionado === null || asiento_seleccionado_vuelta === null) {
+                    aceptar.disabled = true;  // desabilitamos el boton
+                }
+
+            } else {
                 aceptar.disabled = true;  // desabilitamos el boton
             }
+
+            
 
         } else if ((asiento_seleccionado === null) && !(asiento.classList.contains("selected"))) {
             
@@ -112,10 +121,19 @@ asientos_ida.forEach(asiento => {
             asiento.style.backgroundColor = "red"; // Cambiar a rojo
             nro_asiento.innerText = asiento.id  // colocamos en el campo de texto el asiento
             asiento_seleccionado = asiento;
-            
-            if(asiento_seleccionado && asiento_seleccionado_vuelta) {
+
+            // verificamos si el viaje es ida y vuelta para hacer ciertas validaciones dependiendo de la situacion del vuelo
+            if(document.getElementById('viaje').value === "Ida y Vuelta"){
+
+                if(asiento_seleccionado && asiento_seleccionado_vuelta) {
+                    aceptar.disabled = false;  // habilitamos el boton
+                }
+
+            } else {
                 aceptar.disabled = false;  // habilitamos el boton
             }
+
+            
         }
 
     });
@@ -192,9 +210,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
 
         document.querySelector(".label_vuelo").innerHTML = "Ida:"
-        document.querySelector(".viaje").innerHTML = fechaSalida || ''
-        document.querySelector(".origen_vuelo").innerHTML = origen || ''
-        document.querySelector(".destino_vuelo").innerHTML = destino || ''
+        document.querySelector(".viaje").innerHTML = document.getElementById('fecha_salida').value || ''
+        document.querySelector(".origen_vuelo").innerHTML = document.getElementById('origen').value || ''
+        document.querySelector(".destino_vuelo").innerHTML = document.getElementById('destino').value || ''
     });
 
     // evento para el boton de vuelta
@@ -220,9 +238,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         document.querySelector(".label_vuelo").innerHTML = "Vuelta:"
-        document.querySelector(".viaje").innerHTML = fechaLlegada || ''
-        document.querySelector(".origen_vuelo").innerHTML = destino || ''
-        document.querySelector(".destino_vuelo").innerHTML = origen || ''
+        document.querySelector(".viaje").innerHTML = document.getElementById('fecha_llegada').value || ''
+        document.querySelector(".origen_vuelo").innerHTML = document.getElementById('destino').value || ''
+        document.querySelector(".destino_vuelo").innerHTML = document.getElementById('origen').value || ''
     });
 });
 
@@ -239,10 +257,16 @@ aceptar.addEventListener('click', () => {
 
 // boton para cancelar la reserva del asiento
 cancelar.addEventListener("click", () => {
-    asiento_seleccionado.classList.remove("selected");  // eliminamos la seleccion del asiento
-    asiento_seleccionado.style.backgroundColor = "#ddd"; // Cambiar a color original
+
+    asiento_seleccionado.classList.remove("selected");  // eliminamos la seleccion del asiento (ida)
+    asiento_seleccionado.style.backgroundColor = "#ddd"; // Cambiar a color original (ida)
+
+    asiento_seleccionado_vuelta.classList.remove("selected");  // eliminamos la seleccion del asiento (vuelta)
+    asiento_seleccionado_vuelta.style.backgroundColor = "#ddd"; // Cambiar a color original (vuelta)
+
     nro_asiento.innerText="";  // vaciamos el campo de texto
-    asiento_seleccionado = null;  // quitamos el asiento reservado
+    asiento_seleccionado = null;  // quitamos el asiento reservado (ida)
+    asiento_seleccionado_vuelta = null // quitamos el asiento reservado (vuelta)
     aceptar.disabled = true;  // desabilitamos el boton
 
 });
@@ -368,10 +392,18 @@ enter_form.addEventListener("click", () => {
 
         // agregando contenido a la informacion del vuelo de ida
         document.querySelector(".label_vuelo").innerHTML = "Ida:"
-        document.querySelector(".viaje").innerHTML = fechaSalida || ''
-        document.querySelector(".origen_vuelo").innerHTML = origen || ''
-        document.querySelector(".destino_vuelo").innerHTML = destino || ''
+        document.querySelector(".viaje").innerHTML = document.getElementById('fecha_salida').value || ''
+        document.querySelector(".origen_vuelo").innerHTML = document.getElementById('origen').value || ''
+        document.querySelector(".destino_vuelo").innerHTML = document.getElementById('destino').value || ''
 
+
+        if(document.getElementById('viaje').value === "solo Ida") {
+            alert("Ida")
+            vueltaTab.disabled = true
+        } else {
+            alert("vuelta")
+            vueltaTab.disabled = false
+        }
 
         // pasamos a la vista de reservar el asiento del vuelo
         document.querySelector('#formulario').classList.remove('visible');
@@ -403,6 +435,7 @@ enviar_pago.addEventListener("click", () => {
         if(agregar_registro()){
 
             asiento_seleccionado = null;
+            asiento_seleccionado_vuelta = null;
             nro_asiento.innerText="";  // vaciamos el campo de texto
 
             // Vaciar todos los campos del formulario
@@ -466,14 +499,23 @@ close.addEventListener('click',()=>{
 // agregar registro de pasajeros
 
 function agregar_registro(){
+
     const nombre = document.getElementById('nombre').value.trim();
-    const asiento = document.querySelector('.numero-asiento').textContent;
-    if (nombre && asiento) {
+    const asiento_ida = asiento_seleccionado.id;
+    let asiento_vuelta;
+
+    if (asiento_seleccionado_vuelta && asiento_seleccionado_vuelta.id !== null) {
+        asiento_vuelta = asiento_seleccionado_vuelta.id || '';
+    }
+
+    if (nombre && asiento_ida) {
         let tabla = document.getElementById('miTabla').insertRow();
         let col1 = tabla.insertCell(0);
         let col2 = tabla.insertCell(1);
+        let col3 = tabla.insertCell(2);
         col1.innerHTML = nombre;
-        col2.innerHTML = asiento;
+        col2.innerHTML = asiento_ida;
+        col3.innerHTML = asiento_vuelta;
         alert('Registro agregado');
         return true;
     } else {
