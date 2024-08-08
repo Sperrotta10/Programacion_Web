@@ -100,7 +100,10 @@ asientos_ida.forEach(asiento => {
             asiento.style.backgroundColor = "#ddd"; // Cambiar a color original
             nro_asiento.innerText = ""  // vaciamos el campo de texto
             asiento_seleccionado = null;
-            aceptar.disabled = true;  // desabilitamos el boton
+
+            if(asiento_seleccionado === null || asiento_seleccionado_vuelta === null) {
+                aceptar.disabled = true;  // desabilitamos el boton
+            }
 
         } else if ((asiento_seleccionado === null) && !(asiento.classList.contains("selected"))) {
             
@@ -109,7 +112,10 @@ asientos_ida.forEach(asiento => {
             asiento.style.backgroundColor = "red"; // Cambiar a rojo
             nro_asiento.innerText = asiento.id  // colocamos en el campo de texto el asiento
             asiento_seleccionado = asiento;
-            aceptar.disabled = false;  // habilitamos el boton
+            
+            if(asiento_seleccionado && asiento_seleccionado_vuelta) {
+                aceptar.disabled = false;  // habilitamos el boton
+            }
         }
 
     });
@@ -128,7 +134,10 @@ asientos_vuelta.forEach(asiento => {
             asiento.style.backgroundColor = "#ddd"; // Cambiar a color original
             nro_asiento.innerText = ""  // vaciamos el campo de texto
             asiento_seleccionado_vuelta = null;
-            aceptar.disabled = true;  // desabilitamos el boton
+
+            if(asiento_seleccionado === null || asiento_seleccionado_vuelta === null) {
+                aceptar.disabled = true;  // desabilitamos el boton
+            }
 
         } else if ((asiento_seleccionado_vuelta === null) && !(asiento.classList.contains("selected"))) {
             
@@ -137,7 +146,11 @@ asientos_vuelta.forEach(asiento => {
             asiento.style.backgroundColor = "red"; // Cambiar a rojo
             nro_asiento.innerText = asiento.id  // colocamos en el campo de texto el asiento
             asiento_seleccionado_vuelta = asiento;
-            aceptar.disabled = false;  // habilitamos el boton
+
+            if(asiento_seleccionado && asiento_seleccionado_vuelta) {
+                aceptar.disabled = false;  // habilitamos el boton
+            }
+            
         }
 
     });
