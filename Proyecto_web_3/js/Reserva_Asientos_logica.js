@@ -1,14 +1,15 @@
 
 // navegar al formulario (del home al form)
-function mostrarFormulario() {
 
-    // Obtener todos los campos del formulario
-    const boleto = document.getElementById('boleto').value;
-    const viaje = document.getElementById('viaje').value;
-    const fechaSalida = document.getElementById('fecha_salida').value;
-    const origen = document.getElementById('origen').value;
-    const destino = document.getElementById('destino').value;
-    const fechaLlegada = document.getElementById('fecha_llegada').value;
+// Obtener todos los campos del formulario
+const boleto = document.getElementById('boleto').value;
+const viaje = document.getElementById('viaje').value;
+const fechaSalida = document.getElementById('fecha_salida').value;
+const origen = document.getElementById('origen').value;
+const destino = document.getElementById('destino').value;
+const fechaLlegada = document.getElementById('fecha_llegada').value;
+
+function mostrarFormulario() {
 
     // verificar si el vuelo es de ida o es de vuelta
     if(viaje !== "" && viaje === "solo Ida"){
@@ -166,8 +167,21 @@ document.addEventListener('DOMContentLoaded', function() {
         idaSection.style.display = 'block';
         vueltaSection.style.display = 'none';
 
+        // agregando contenido a la informacion del vuelo
         nro_asiento.innerText = ""
-        nro_asiento.innerText = asiento_seleccionado.id  // colocamos en el campo de texto el asiento
+
+        // Verificar si asiento_seleccionado no es null o undefined antes de acceder a su propiedad id
+        if (asiento_seleccionado && asiento_seleccionado.id !== null) {
+            nro_asiento.innerText = asiento_seleccionado.id || '';
+        } else {
+            nro_asiento.innerText = "";
+        }
+        
+
+        document.querySelector(".label_vuelo").innerHTML = "Ida:"
+        document.querySelector(".viaje").innerHTML = fechaSalida || ''
+        document.querySelector(".origen_vuelo").innerHTML = "Valencia"
+        document.querySelector(".destino_vuelo").innerHTML = "Caracas"
     });
 
     // evento para el boton de vuelta
@@ -182,8 +196,20 @@ document.addEventListener('DOMContentLoaded', function() {
         idaSection.style.display = 'none';
         vueltaSection.style.display = 'block';
 
+        // agregando contenido a la informacion del vuelo
         nro_asiento.innerText = ""
-        nro_asiento.innerText = asiento_seleccionado_vuelta.id  // colocamos en el campo de texto el asiento
+
+        // Verificar si asiento_seleccionado_vuelta no es null o undefined antes de acceder a su propiedad id
+        if (asiento_seleccionado_vuelta && asiento_seleccionado_vuelta.id !== null) {
+            nro_asiento.innerText = asiento_seleccionado_vuelta.id || '';
+        } else {
+            nro_asiento.innerText = "";
+        }
+        
+        document.querySelector(".label_vuelo").innerHTML = "Vuelta:"
+        document.querySelector(".viaje").innerHTML = fechaLlegada || ''
+        document.querySelector(".origen_vuelo").innerHTML = "Caracas"
+        document.querySelector(".destino_vuelo").innerHTML = "Valencia"
     });
 });
 
