@@ -452,19 +452,23 @@
 
                     <div class="info-item">
                         <span class="label">Número de Vuelo:</span>
-                        <span class="value">12345</span>
+                        <span class="value codigo_vuelo">AA 123</span>
                     </div>
                     <div class="info-item">
                         <span class="label">Origen:</span>
-                        <span class="value">Ciudad A</span>
+                        <span class="value origen_vuelo">Ciudad A</span>
                     </div>
                     <div class="info-item">
                         <span class="label">Destino:</span>
-                        <span class="value">Ciudad B</span>
+                        <span class="value destino_vuelo">Ciudad B</span>
                     </div>
                     <div class="info-item">
-                        <span class="label">Fecha y Hora:</span>
-                        <span class="value">01/01/2024 10:00 AM</span>
+                        <span class="label">Ida:</span>
+                        <span class="value viaje_ida">01/01/2024 10:00 AM</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Vuelta:</span>
+                        <span class="value viaje_vuelta">01/01/2024 10:00 AM</span>
                     </div>
                     
                   </div>
@@ -492,6 +496,18 @@
                 </section>
 
                 <section class="seat-map">
+
+                    <aside class="sidebar-top">
+                        <section class="navigation-bar">
+                            <div class="nav-tabs">
+                                <button id="tab1" class="nav-tab nav-tab-active">Ida</button>
+                                <button id="tab2" class="nav-tab nav-tab-inactive">Vuelta</button>
+                            </div>
+                        </section>
+                    </aside>
+
+
+                    
                     <div class="seat-row" id="fila30">
                         <div class="Col2">
                             <div id="C30" class="seat">C</div>
@@ -762,26 +778,28 @@
                         </div>
                         <div class="row-number">44</div>
                     
-                </div>
-
-                <div class="seat-row2" >
-                    
-                    <div class="Col2">
-                        <div id="C45" class="seat"></div>
-                        <div id="D45" class="seat"></div>
-                        <div id="F45" class="seat"></div>
-                        <div id="G45" class="seat">  </div>
                     </div>
+
+                    <div class="seat-row2" >
                         
-                    <div class="row-number">45</div>
-                </div>
+                        <div class="Col2">
+                            <div id="C45" class="seat"></div>
+                            <div id="D45" class="seat"></div>
+                            <div id="F45" class="seat"></div>
+                            <div id="G45" class="seat">  </div>
+                        </div>
+                            
+                        <div class="row-number">45</div>
+                    </div>
 
-                <div class="action-buttons">
+                    <div class="action-buttons">
 
-                  <button class="confirm-button">CONFIRMAR</button>
-                  <button class="cancel-button" onclick="mostrarFormulario2()">CANCELAR</button>
+                    <button class="confirm-button">CONFIRMAR</button>
+                    <button class="cancel-button" onclick="mostrarFormulario2()">CANCELAR</button>
 
-                </div>
+                    </div>
+
+                </section>
             </section>
             </div>
         </main>
