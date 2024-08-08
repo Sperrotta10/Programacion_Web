@@ -67,19 +67,29 @@ function mostrarFormulario2() {
 
 // RESERVA DE ASIENTOS
 
-
-
 // Recorrido de los asientos del vuelo (Vaje de ida y vuelta)
-const asientos = document.querySelectorAll(".seat");  // seleccionamos todos los asientos
 const aceptar = document.querySelector(".confirm-button");  // boton para aceptar la reservacion del asiento
 const cancelar = document.querySelector(".cancel-button");  // boton para cancelar la reservacion del asiento
 aceptar.disabled = true;
 
+// Viajes de Ida
+
+const asientos_ida = document.querySelectorAll(".seat-ida .seat");  // seleccionamos todos los asientos del vuelo de ida
 let asiento_seleccionado = null;
+
+// Viaje de vuelta
+
+const asientos_vuelta = document.querySelectorAll(".seat-vuelta .seat");  // seleccionamos todos los asientos del vuelo de ida
+let asiento_seleccionado_vuelta = null;
+
+// seleccion de asiento de ida y vuelta
 let nro_asiento = document.querySelector(".numero-asiento");
 
+
+
 // hacemos un ciclo para recorrer cada uno de los asientos y manejar los eventos
-asientos.forEach(asiento => {
+asientos_ida.forEach(asiento => {
+
     asiento.addEventListener("click", () => {
         
         if (asiento_seleccionado === asiento) {
@@ -102,8 +112,83 @@ asientos.forEach(asiento => {
         }
 
     });
+
 });
 
+// hacemos un ciclo para recorrer cada uno de los asientos y manejar los eventos
+asientos_vuelta.forEach(asiento => {
+
+    asiento.addEventListener("click", () => {
+        
+        if (asiento_seleccionado_vuelta === asiento) {
+
+            // Si el asiento clicado ya está seleccionado, desmarcarlo
+            asiento.classList.remove("selected");
+            asiento.style.backgroundColor = "#ddd"; // Cambiar a color original
+            nro_asiento.innerText = ""  // vaciamos el campo de texto
+            asiento_seleccionado_vuelta = null;
+            aceptar.disabled = true;  // desabilitamos el boton
+
+        } else if ((asiento_seleccionado_vuelta === null) && !(asiento.classList.contains("selected"))) {
+            
+            // Si no hay asiento seleccionado, marcar el asiento clicado
+            asiento.classList.add("selected");
+            asiento.style.backgroundColor = "red"; // Cambiar a rojo
+            nro_asiento.innerText = asiento.id  // colocamos en el campo de texto el asiento
+            asiento_seleccionado_vuelta = asiento;
+            aceptar.disabled = false;  // habilitamos el boton
+        }
+
+    });
+
+});
+
+
+// declaramos los botones y secciones
+const idaTab = document.getElementById('tab1');
+const vueltaTab = document.getElementById('tab2');
+const idaSection = document.querySelector('.seat-ida');
+const vueltaSection = document.querySelector('.seat-vuelta');
+
+// nav-bar para establcer los puestos del viaje de Ida y Vuelta si los son
+document.addEventListener('DOMContentLoaded', function() {
+
+
+    // evento para el boton de ida
+    idaTab.addEventListener('click', function() {
+
+        idaTab.classList.add('nav-tab-active');
+        idaTab.classList.remove('nav-tab-inactive');
+
+        vueltaTab.classList.add('nav-tab-inactive');
+        vueltaTab.classList.remove('nav-tab-active');
+
+        idaSection.style.display = 'block';
+        vueltaSection.style.display = 'none';
+
+        nro_asiento.innerText = ""
+        nro_asiento.innerText = asiento_seleccionado.id  // colocamos en el campo de texto el asiento
+    });
+
+    // evento para el boton de vuelta
+    vueltaTab.addEventListener('click', function() {
+
+        vueltaTab.classList.add('nav-tab-active');
+        vueltaTab.classList.remove('nav-tab-inactive');
+
+        idaTab.classList.add('nav-tab-inactive');
+        idaTab.classList.remove('nav-tab-active');
+        
+        idaSection.style.display = 'none';
+        vueltaSection.style.display = 'block';
+
+        nro_asiento.innerText = ""
+        nro_asiento.innerText = asiento_seleccionado_vuelta.id  // colocamos en el campo de texto el asiento
+    });
+});
+
+
+// boton para viajar a pagina de pago
 aceptar.addEventListener('click', () => {
 
     //alert("Reserva de asiento realizada");
@@ -113,6 +198,7 @@ aceptar.addEventListener('click', () => {
 })
 
 
+// boton para cancelar la reserva del asiento
 cancelar.addEventListener("click", () => {
     asiento_seleccionado.classList.remove("selected");  // eliminamos la seleccion del asiento
     asiento_seleccionado.style.backgroundColor = "#ddd"; // Cambiar a color original
@@ -352,89 +438,6 @@ function agregar_registro(){
     }
     
 }
-
-
-/*
-// Pasajeros que reservaron vuelos
-function mostrarDatosEnTabla() {
-
-
-    const nombre = document.querySelector('#nombres').value;
-    const apellido = document.querySelector('#apellidos').value;
-    const edad = document.querySelector('#boleto').value
-    const origen_vuelo = document.querySelector('#origen').value;
-    const destino_vuelo = document.querySelector('#destino').value;
-    const tipo_viaje = document.querySelector('#viaje').value; 
-    const asiento_reservado = asiento_seleccionado.id
-
-    const tabla = document.getElementById('miTabla');
-    const nuevaFila = document.createElement('tr');
-
-    const celdaNombre = document.createElement('td');
-    celdaNombre.textContent = nombre;
-    nuevaFila.appendChild(celdaNombre);
-
-    const celdaApellido = document.createElement('td');
-    celdaApellido.textContent = apellido;
-    nuevaFila.appendChild(celdaApellido);
-
-    if (edad === 'Adulto (desde 13 años)'){
-        const celdaEdad = document.createElement('td');
-        celdaEdad.textContent = "13+=";
-        nuevaFila.appendChild(celdaEdad);
-    } else if (edad === 'Niños (3-12 años)'){
-        const celdaEdad = document.createElement('td');
-        celdaEdad.textContent = "(3-12 years)";
-        nuevaFila.appendChild(celdaEdad);
-    } else {
-        const celdaEdad = document.createElement('td');
-        celdaEdad.textContent = "0-2 years";
-        nuevaFila.appendChild(celdaEdad);
-    }
-    
-    const celdaOrigen = document.createElement('td');
-    celdaOrigen.textContent = origen_vuelo;
-    nuevaFila.appendChild(celdaOrigen);
-
-    const celdaDestino = document.createElement('td');
-    celdaDestino.textContent = destino_vuelo;
-    nuevaFila.appendChild(celdaDestino);
-
-    const celdaViaje = document.createElement('td');
-    celdaViaje.textContent = tipo_viaje;
-    nuevaFila.appendChild(celdaViaje);
-
-    const celdaAsiento = document.createElement('td');
-    celdaAsiento.textContent = asiento_reservado;
-    nuevaFila.appendChild(celdaAsiento);
-
-
-    tabla.appendChild(nuevaFila);
-}
-
-
-function vaciar_formulario_main() {
-
-    const forms = document.querySelectorAll(".formulario")
-
-    // Vaciar el formulario
-    forms.forEach(formulario => {
-        formulario.reset();
-      });
-}
-
-
-const selectorPais = document.getElementById('telefonito');
-  selectorPais.addEventListener('change', mostrarCodigoNumerico);
-
-  function mostrarCodigoNumerico() {
-    const opcionSeleccionada = selectorPais.options[selectorPais.selectedIndex];
-    const codigoNumerico = opcionSeleccionada.value;
-    selectorPais.value = codigoNumerico;
-  }
-
-
-*/
 
 
 /*
