@@ -66,7 +66,10 @@ function mostrarFormulario2() {
 }
 
 
+
+
 // RESERVA DE ASIENTOS
+
 
 // Recorrido de los asientos del vuelo (Vaje de ida y vuelta)
 const aceptar = document.querySelector(".confirm-button");  // boton para aceptar la reservacion del asiento
@@ -273,6 +276,7 @@ cancelar.addEventListener("click", () => {
 
 
 
+
 // FORMULARIO VALIDACIONES
 
 
@@ -416,7 +420,8 @@ enter_form.addEventListener("click", () => {
 
 
 
-// Pago del vuelo
+
+// PAGO DEL VUELO
 
 const enviar_pago = document.querySelector(".confirm-pago");
 const cancelar_pago = document.querySelector(".cancel-pago");
@@ -524,6 +529,12 @@ function agregar_registro(){
     }
     
 }
+
+
+
+// BORDING PASS DEL VUELO
+
+
 
 
 /*
