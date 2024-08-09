@@ -31,7 +31,7 @@
 
 
     <!-- ================================================  PAGINA PRINCIPAL   ========================================================= -->
-    <div id="landing-content" class="sectiones visible">   
+    <div id="landing-content" class="sectiones">   
         <section class="welcome-section">
             <div class="content-wrapper">
                 <div class="welcome-content">
@@ -1117,7 +1117,7 @@
     <!-- ================================================  PAGINA DE PAGO DEL VUELO   ========================================================= -->
 
 
-    <div id="Pago" class="sectiones">
+    <div id="Pago" class="sectiones visible">
       <div class="passenger-info">
           <form class="validaciones_pago">
               <h2>Pago</h2>
@@ -1161,6 +1161,23 @@
             <div class="action-buttons2">
               <button class="confirm-pago">Seguir</button>
               <button class="cancel-pago">CANCELAR</button>
+              <button id="openModal">Generar Factura</button>
+
+              <div id="myModal" class="modal_factura">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2>Factura del Vuelo</h2>
+                    </div>
+                    <div class="modal-body" id="factura">
+                        <!-- Aquí se inserta la factura generada con JavaScript -->
+                    </div>
+                    <div class="modal-footer">
+                        <button id="cerrarModal" class="btn-factura">Cerrar Factura</button>
+                    </div>
+                </div>
+            </div>
+            
           </div>
       </div>
       
