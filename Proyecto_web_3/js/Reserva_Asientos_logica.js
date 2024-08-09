@@ -51,6 +51,7 @@ function mostrarFormulario() {
     // Todos los campos están llenos, puedes ejecutar la función
     document.getElementById('landing-content').classList.remove('visible');
     document.getElementById('formulario').classList.add('visible');
+    window.scrollTo(0, 0); // Mueve la cámara al principio de la página
         
 }
 
@@ -58,11 +59,13 @@ function mostrarFormulario() {
 function mostrarPrincipal() {
     document.getElementById('formulario').classList.remove('visible');
     document.getElementById('landing-content').classList.add('visible');
+    window.scrollTo(0, 0); // Mueve la cámara al principio de la página
 }
 
 function mostrarFormulario2() {
     document.querySelector("#reserva").classList.remove('visible');
     document.querySelector('#formulario').classList.add('visible');
+    window.scrollTo(0, 0); // Mueve la cámara al principio de la página
 }
 
 
@@ -257,6 +260,7 @@ aceptar.addEventListener('click', () => {
 
     document.querySelector('#reserva').classList.remove('visible');
     document.querySelector('#Pago').classList.add('visible');
+    window.scrollTo(0, 0); // Mueve la cámara al principio de la página
 })
 
 
@@ -415,6 +419,7 @@ enter_form.addEventListener("click", () => {
         // pasamos a la vista de reservar el asiento del vuelo
         document.querySelector('#formulario').classList.remove('visible');
         document.querySelector('#reserva').classList.add('visible');
+        window.scrollTo(0, 0); // Mueve la cámara al principio de la página
         
     }
     
@@ -530,6 +535,7 @@ enviar_pago.addEventListener("click", () => {
 
                 document.querySelector('#Bordings').classList.add('visible');
                 document.querySelector('#pass_ida').classList.add('visible');
+                window.scrollTo(0, 0); // Mueve la cámara al principio de la página
 
             } else {
 
@@ -538,6 +544,7 @@ enviar_pago.addEventListener("click", () => {
                 document.querySelector('#Bordings').classList.add('visible');
                 document.querySelector('#pass_ida').classList.add('visible');
                 document.querySelector('#pass_vuelta').classList.add('visible');
+                window.scrollTo(0, 0); // Mueve la cámara al principio de la página
 
             }
 
@@ -690,6 +697,7 @@ document.querySelector(".btn_continuar").addEventListener("click", () => {
     document.querySelector('#pass_vuelta').classList.remove('visible');
 
     document.getElementById('landing-content').classList.add('visible');
+    window.scrollTo(0, 0); // Mueve la cámara al principio de la página
 
 })
 
