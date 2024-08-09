@@ -1,0 +1,110 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts\\Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+    src: url('fonts\\Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.pasaje {
+    margin-left: 20px;
+}
+
+.boarding-pass {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 600px;
+    max-width: 100%;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.boarding-pass .header {
+    background: #007bff;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boarding-pass .header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    flex: 1;
+}
+
+/* Mantener la información del vuelo a la derecha */
+.boarding-pass .header .flight-info-bording {
+    text-align: right;
+    flex: 1; /* Mantén la alineación a la derecha */
+}
+
+.boarding-pass .header .flight-info-bording p {
+    margin: 0;
+}
+
+/* Ajustar los detalles y el código de barras para que se alineen */
+.boarding-pass .body {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Asegura que estén alineados verticalmente */
+    border-bottom: 1px solid #ddd;
+}
+
+.boarding-pass .body .details {
+    flex: 1;
+    padding-right: 10px;
+}
+
+/* Ajuste adicional para el texto de detalles */
+.boarding-pass .body .details p {
+    margin: 5px 0;
+    text-align: left; /* Asegura que el texto esté alineado a la izquierda */
+}
+
+/* Reducir el tamaño del código de barras si es necesario */
+.boarding-pass .body .barcode {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    flex: 0 0 80px; /* Reduce el ancho del código de barras */
+}
+
+.boarding-pass .barcode canvas {
+    width: 100px;
+    height: 100px;
+}
+
+.boarding-pass .footer {
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    text-align: center;
+}
+
+.boarding-pass .footer p {
+    margin: 0;
+}
