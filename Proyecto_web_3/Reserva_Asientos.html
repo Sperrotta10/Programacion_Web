@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="estilos/styles.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="estilos/landing_styles.css">
     <link rel="stylesheet" href="estilos/form_styles.css" type="text/css">
+    <link rel="stylesheet" href="estilos/bording_pass.css" type="text/css">
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.1.0/build/css/intlTelInput.css">-->
 
     <title>Reserva</title>
@@ -30,7 +31,7 @@
 
 
     <!-- ================================================  PAGINA PRINCIPAL   ========================================================= -->
-    <div id="landing-content" class="sectiones visible">   
+    <div id="landing-content" class="sectiones">   
         <section class="welcome-section">
             <div class="content-wrapper">
                 <div class="welcome-content">
@@ -1158,9 +1159,69 @@
     </div>
 
 
+    <!-- =============================================================================================================================== -->
+
+
+
+    <!-- ================================================  PAGINA DEl Bording pass   ========================================================= -->
+
+    <div class="sectiones visible">
+        <div class="boarding-pass" id="boarding-pass-ida">
+            <div class="header">
+                <div class="logo">Angel Airlines</div>
+                <div class="flight-info-bording">
+                    <p><strong>Vuelo:</strong> 1234</p>
+                    <p><strong>Fecha:</strong> 10 de Agosto, 2024</p>
+                    <p><strong>Hora:</strong> 10:00 AM</p>
+                </div>
+            </div>
+            <div class="body">
+                <div class="details">
+                    <p><strong>Nombre:</strong> Juan Pérez</p>
+                    <p><strong>Asiento:</strong> 12A</p>
+                    <p><strong>Puerta:</strong> 5</p>
+                    <p><strong>Destino:</strong> Berlín</p>
+                </div>
+                <div class="barcode" id="qrcode-ida"></div>
+            </div>
+            <div class="footer">
+                <p>¡Gracias por volar con nosotros!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="sectiones pasaje visible">
+
+        <div class="boarding-pass" id="boarding-pass-vuelta">
+            <div class="header">
+                <div class="logo">Angel Airlines</div>
+                <div class="flight-info-bording">
+                    <p><strong>Vuelo:</strong> 5678</p>
+                    <p><strong>Fecha:</strong> 20 de Agosto, 2024</p>
+                    <p><strong>Hora:</strong> 4:00 PM</p>
+                </div>
+            </div>
+            <div class="body">
+                <div class="details">
+                    <p><strong>Nombre:</strong> Juan Pérez</p>
+                    <p><strong>Asiento:</strong> 14C</p>
+                    <p><strong>Puerta:</strong> 8</p>
+                    <p><strong>Destino:</strong> Madrid</p>
+                </div>
+                <div class="barcode" id="qrcode-vuelta"></div>
+            </div>
+            <div class="footer">
+                <p>¡Gracias por volar con nosotros!</p>
+            </div>
+        </div>
+    </div>
+
+
     <!-- codigo telefonicos telefonos-->
     <!--<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.1.0/build/js/intlTelInput.min.js"></script>-->
     <!-- Logica del documento-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="js/Reserva_Asientos_logica.js"></script>
 
 
