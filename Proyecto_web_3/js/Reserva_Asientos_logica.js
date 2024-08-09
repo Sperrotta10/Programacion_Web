@@ -212,6 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
 
+        document.querySelector(".codigo_vuelo") = "AA 450"
         document.querySelector(".label_vuelo").innerHTML = "Ida:"
         document.querySelector(".viaje").innerHTML = document.getElementById('fecha_salida').value || ''
         document.querySelector(".origen_vuelo").innerHTML = document.getElementById('origen').value || ''
@@ -240,6 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
             nro_asiento.innerText = "";
         }
         
+        document.querySelector(".codigo_vuelo") = "AA 650"
         document.querySelector(".label_vuelo").innerHTML = "Vuelta:"
         document.querySelector(".viaje").innerHTML = document.getElementById('fecha_llegada').value || ''
         document.querySelector(".origen_vuelo").innerHTML = document.getElementById('destino').value || ''
@@ -395,6 +397,7 @@ enter_form.addEventListener("click", () => {
         alert('Formulario enviado correctamente.');
 
         // agregando contenido a la informacion del vuelo de ida
+        document.querySelector(".codigo_vuelo") = "AA 450"
         document.querySelector(".label_vuelo").innerHTML = "Ida:"
         document.querySelector(".viaje").innerHTML = document.getElementById('fecha_salida').value || ''
         document.querySelector(".origen_vuelo").innerHTML = document.getElementById('origen').value || ''
@@ -439,6 +442,53 @@ enviar_pago.addEventListener("click", () => {
 
         if(agregar_registro()){
 
+            // creacion de los bording pass del pasajero
+            if(document.getElementById('viaje').value === "solo Ida") {
+
+                // Informacion de viaje
+                document.querySelector(".numero_vuelo_ida").innerHTML = "<strong>Vuelo:</strong>" + " " + "AA 450";
+                document.querySelector(".fecha_vuelo_ida").innerHTML = "<strong>Fecha:</strong>" + " " + document.getElementById('fecha_salida').value;;
+                document.querySelector(".fecha_hora_ida").innerHTML = "<strong>Hora:</strong>" + " " + "10:30am";
+
+                // Informacion del vuelo y pasajero
+
+                document.querySelector(".name_pasajero_ida").innerHTML = "<strong>Nombre:</strong>" + " " + document.getElementById('nombre').value;
+                document.querySelector(".asiento_pasajero_ida").innerHTML = "<strong>Asiento:</strong>" + " " + asiento_seleccionado.id;
+                document.querySelector(".puerta_pasajero_ida").innerHTML = "<strong>Puerta</strong>" + " " + 4;
+                document.querySelector(".destino_pasajero_ida").innerHTML = "<strong>Destino</strong>" + " " + document.getElementById('destino').value;
+            } else {
+
+                // Bording Pass de ida
+
+                // Informacion de viaje
+                document.querySelector(".numero_vuelo_ida").innerHTML = "<strong>Vuelo:</strong>" + " " + "AA 450";
+                document.querySelector(".fecha_vuelo_ida").innerHTML = "<strong>Fecha:</strong>" + " " + document.getElementById('fecha_salida').value;
+                document.querySelector(".fecha_hora_ida").innerHTML = "<strong>Hora:</strong>" + " " + "10:30am";
+
+                // Informacion del vuelo y pasajero
+
+                document.querySelector(".name_pasajero_ida").innerHTML = "<strong>Nombre:</strong>" + " " + document.getElementById('nombre').value;
+                document.querySelector(".asiento_pasajero_ida").innerHTML = "<strong>Asiento:</strong>" + " " + asiento_seleccionado.id;
+                document.querySelector(".puerta_pasajero_ida").innerHTML = "<strong>Puerta</strong>" + " " + 4;
+                document.querySelector(".destino_pasajero_ida").innerHTML = "<strong>Destino</strong>" + " " + document.getElementById('destino').value;
+
+
+                // Bording Pass vuelta
+
+                // Informacion de viaje
+                document.querySelector(".numero_vuelo_vuelta").innerHTML = "<strong>Vuelo:</strong>" + " " + "AA 650";
+                document.querySelector(".fecha_vuelo_vuelta").innerHTML = "<strong>Fecha:</strong>" + " " + document.getElementById('fecha_llegada').value;
+                document.querySelector(".fecha_hora_vuelta").innerHTML = "<strong>Hora:</strong>" + " " + "8:00pm";
+
+                // Informacion del vuelo y pasajero
+
+                document.querySelector(".name_pasajero_vuelta").innerHTML = "<strong>Nombre:</strong>" + " " + document.getElementById('nombre').value;
+                document.querySelector(".asiento_pasajero_vuelta").innerHTML = "<strong>Asiento:</strong>" + " " + asiento_seleccionado_vuelta.id;
+                document.querySelector(".puerta_pasajero_vuelta").innerHTML = "<strong>Puerta</strong>" + " " + 10;
+                document.querySelector(".destino_pasajero_vuelta").innerHTML = "<strong>Destino</strong>" + " " + document.getElementById('origen').value;
+            }
+
+
             asiento_seleccionado = null;
             asiento_seleccionado_vuelta = null;
             nro_asiento.innerText="";  // vaciamos el campo de texto
@@ -467,8 +517,23 @@ enviar_pago.addEventListener("click", () => {
             document.getElementById('correo').value = "";
             document.getElementById('direccion').value = "";
 
-            document.querySelector('#Pago').classList.remove('visible');
-            document.querySelector('#landing-content').classList.add('visible');
+
+            if(document.getElementById('viaje').value === "solo Ida") {
+
+                document.querySelector('#Pago').classList.remove('visible');
+
+                document.querySelector('#Bordings').classList.add('visible');
+                document.querySelector('#pass_ida').classList.add('visible');
+
+            } else {
+
+                document.querySelector('#Pago').classList.remove('visible');
+
+                document.querySelector('#Bordings').classList.add('visible');
+                document.querySelector('#pass_ida').classList.add('visible');
+                document.querySelector('#pass_vuelta').classList.add('visible');
+
+            }
 
             // vaciamos los campos de formulario de la vista de pagos
             form_validacion.reset();
@@ -514,7 +579,7 @@ function agregar_registro(){
     }
 
     if (nombre && asiento_ida) {
-        let tabla = document.getElementById('miTabla').insertRow();
+        let tabla = document.getElementById('miTabla').getElementsByTagName('tbody')[0].insertRow();
         let col1 = tabla.insertCell(0);
         let col2 = tabla.insertCell(1);
         let col3 = tabla.insertCell(2);
@@ -534,7 +599,15 @@ function agregar_registro(){
 
 // BORDING PASS DEL VUELO
 
+document.querySelector(".btn_continuar").addEventListener("click", () => {
 
+    document.querySelector('#Bordings').classList.remove('visible');
+    document.querySelector('#pass_ida').classList.remove('visible');
+    document.querySelector('#pass_vuelta').classList.remove('visible');
+
+    document.getElementById('landing-content').classList.add('visible');
+
+})
 
 
 /*
