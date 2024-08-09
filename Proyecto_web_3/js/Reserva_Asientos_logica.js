@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
 
-        document.querySelector(".codigo_vuelo") = "AA 450"
+        document.querySelector(".codigo_vuelo").innerHTML = "AA 450"
         document.querySelector(".label_vuelo").innerHTML = "Ida:"
         document.querySelector(".viaje").innerHTML = document.getElementById('fecha_salida').value || ''
         document.querySelector(".origen_vuelo").innerHTML = document.getElementById('origen').value || ''
@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
             nro_asiento.innerText = "";
         }
         
-        document.querySelector(".codigo_vuelo") = "AA 650"
+        document.querySelector(".codigo_vuelo").innerHTML = "AA 650"
         document.querySelector(".label_vuelo").innerHTML = "Vuelta:"
         document.querySelector(".viaje").innerHTML = document.getElementById('fecha_llegada').value || ''
         document.querySelector(".origen_vuelo").innerHTML = document.getElementById('destino').value || ''
@@ -397,7 +397,7 @@ enter_form.addEventListener("click", () => {
         alert('Formulario enviado correctamente.');
 
         // agregando contenido a la informacion del vuelo de ida
-        document.querySelector(".codigo_vuelo") = "AA 450"
+        document.querySelector(".codigo_vuelo").innerHTML = "AA 450"
         document.querySelector(".label_vuelo").innerHTML = "Ida:"
         document.querySelector(".viaje").innerHTML = document.getElementById('fecha_salida').value || ''
         document.querySelector(".origen_vuelo").innerHTML = document.getElementById('origen').value || ''
