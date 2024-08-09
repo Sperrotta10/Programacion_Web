@@ -596,6 +596,73 @@ function agregar_registro(){
 }
 
 
+// Modal para la factura del vuelo
+document.getElementById('openModal').addEventListener('click', function() {
+    
+    let precioVuelo; // Precio base del vuelo
+
+    if(document.getElementById('viaje').value === "solo Ida") {
+        precioVuelo = 150;
+    } else {
+        precioVuelo = 300;
+    }
+
+    const impuestos = precioVuelo * 0.16; // 16% de impuestos
+    const pesoEquipaje_mano = parseFloat(document.getElementById('mano').value); // Peso del equipaje de mano en kg
+    const pesoEquipaje_bodega = parseFloat(document.getElementById('bodega').value) || 0; // Peso del equipaje de bodega en kg
+    const limitePeso_mano = 10; // Límite de peso permitido en kg
+    const limitePeso_bodega = 23; // Límite de peso permitido en kg
+    const multaPorExceso = 50; // Multa por cada kg de exceso
+
+    let multa_mano = 0;
+    let multa_bodega = 0;
+
+    // Condiciones para ver si se excedió el peso del equipaje de mano
+    if (pesoEquipaje_mano > limitePeso_mano) {
+        multa_mano = (pesoEquipaje_mano - limitePeso_mano) * multaPorExceso;
+    }
+
+    // Condiciones para ver si se excedió el peso del equipaje de bodega
+    if (pesoEquipaje_bodega > 0) {
+        if (pesoEquipaje_bodega > limitePeso_bodega) {
+            multa_bodega = (pesoEquipaje_bodega - limitePeso_bodega) * multaPorExceso;
+        }
+    }
+
+    // Calcular el total dependiendo si hay maleta de bodega o no
+    const total = precioVuelo + impuestos + multa_mano + multa_bodega;
+
+    // Actualizar el contenido del modal con la factura
+    document.getElementById('factura').innerHTML = `
+        <p>Precio del vuelo: $${precioVuelo.toFixed(2)}</p>
+        <p>Impuestos (16%): $${impuestos.toFixed(2)}</p>
+        ${multa_mano > 0 ? `<p>Multa por exceso de equipaje de mano: $${multa_mano.toFixed(2)}</p>` : ''}
+        ${multa_bodega > 0 ? `<p>Multa por exceso de equipaje de bodega: $${multa_bodega.toFixed(2)}</p>` : ''}
+        <hr>
+        <p><strong>Total: $${total.toFixed(2)}</strong></p>
+    `;
+
+    // Mostrar el modal
+    document.getElementById('myModal').style.display = "block";
+});
+
+
+
+document.querySelector('.close').addEventListener('click', function() {
+    document.getElementById('myModal').style.display = "none";
+});
+
+document.getElementById('cerrarModal').addEventListener('click', function() {
+    document.getElementById('myModal').style.display = "none";
+});
+
+window.addEventListener('click', function(event) {
+    if (event.target == document.getElementById('myModal')) {
+        document.getElementById('myModal').style.display = "none";
+    }
+});
+
+
 
 // BORDING PASS DEL VUELO
 
