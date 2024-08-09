@@ -31,7 +31,7 @@
 
 
     <!-- ================================================  PAGINA PRINCIPAL   ========================================================= -->
-    <div id="landing-content" class="sectiones">   
+    <div id="landing-content" class="sectiones visible">   
         <section class="welcome-section">
             <div class="content-wrapper">
                 <div class="welcome-content">
@@ -480,8 +480,17 @@
                   <div class="modal-container" id="modal-container">
                     <div class="modal">
                       <center><h1 id="Titulo_tabla">Lista de pasajeros</h1></center>
-                      <table  id="miTabla">
-
+                      <table id="miTabla">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Asiento Ida</th>
+                                <th>Asiento Vuelta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Aquí se agregarán las filas dinámicamente con JavaScript -->
+                        </tbody>
                       </table>
                       
                       <button id="cerrar_tabla" class="cerrar-button">Cerrar</button>
@@ -1165,25 +1174,26 @@
 
     <!-- ================================================  PAGINA DEl Bording pass   ========================================================= -->
 
-    <div class="main-container sectiones visible">
+    <div id="Bordings" class="main-container sectiones">
         <div class="boarding-pass-container">
-            <div class="sectiones visible">
+
+            <div id="pass_ida" class="sectiones">
                 <h2 class="encabezado">Boarding Pass Ida</h2>
                 <div class="boarding-pass" id="boarding-pass-ida">
                     <div class="header">
                         <div class="logo">Angel Airlines</div>
                         <div class="flight-info-bording">
-                            <p><strong>Vuelo:</strong> 1234</p>
-                            <p><strong>Fecha:</strong> 10 de Agosto, 2024</p>
-                            <p><strong>Hora:</strong> 10:00 AM</p>
+                            <p class="numero_vuelo_ida"><strong>Vuelo:</strong> 1234</p>
+                            <p class="fecha_vuelo_ida"><strong>Fecha:</strong> 10 de Agosto, 2024</p>
+                            <p class="fecha_hora_ida"><strong>Hora:</strong> 10:00 AM</p>
                         </div>
                     </div>
                     <div class="body">
                         <div class="details">
-                            <p><strong>Nombre:</strong> Juan Pérez</p>
-                            <p><strong>Asiento:</strong> 12A</p>
-                            <p><strong>Puerta:</strong> 5</p>
-                            <p><strong>Destino:</strong> Berlín</p>
+                            <p class="name_pasajero_ida"><strong>Nombre:</strong> Juan Pérez</p>
+                            <p class="asiento_pasajero_ida"><strong>Asiento:</strong> 12A</p>
+                            <p class="puerta_pasajero_ida"><strong>Puerta:</strong> 5</p>
+                            <p class="destino_pasajero_ida"><strong>Destino:</strong> Berlín</p>
                         </div>
                         <div class="barcode" id="qrcode-ida"></div>
                     </div>
@@ -1193,23 +1203,23 @@
                 </div>
             </div>
     
-            <div class="sectiones pasaje visible">
+            <div id="pass_vuelta" class="sectiones pasaje">
                 <h2 class="encabezado">Boarding Pass Vuelta</h2>
                 <div class="boarding-pass" id="boarding-pass-vuelta">
                     <div class="header">
                         <div class="logo">Angel Airlines</div>
                         <div class="flight-info-bording">
-                            <p><strong>Vuelo:</strong> 5678</p>
-                            <p><strong>Fecha:</strong> 20 de Agosto, 2024</p>
-                            <p><strong>Hora:</strong> 4:00 PM</p>
+                            <p class="numero_vuelo_vuelta"><strong>Vuelo:</strong> 1234</p>
+                            <p class="fecha_vuelo_vuelta"><strong>Fecha:</strong> 10 de Agosto, 2024</p>
+                            <p class="fecha_hora_vuelta"><strong>Hora:</strong> 10:00 AM</p>
                         </div>
                     </div>
                     <div class="body">
                         <div class="details">
-                            <p><strong>Nombre:</strong> Juan Pérez</p>
-                            <p><strong>Asiento:</strong> 14C</p>
-                            <p><strong>Puerta:</strong> 8</p>
-                            <p><strong>Destino:</strong> Madrid</p>
+                            <p class="name_pasajero_vuelta"><strong>Nombre:</strong> Juan Pérez</p>
+                            <p class="asiento_pasajero_vuelta"><strong>Asiento:</strong> 14C</p>
+                            <p class="puerta_pasajero_vuelta"><strong>Puerta:</strong> 8</p>
+                            <p class="destino_pasajero_vuelta"><strong>Destino:</strong> Madrid</p>
                         </div>
                         <div class="barcode" id="qrcode-vuelta"></div>
                     </div>
