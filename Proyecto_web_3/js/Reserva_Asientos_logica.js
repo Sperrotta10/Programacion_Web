@@ -456,6 +456,9 @@ enviar_pago.addEventListener("click", () => {
                 document.querySelector(".asiento_pasajero_ida").innerHTML = "<strong>Asiento:</strong>" + " " + asiento_seleccionado.id;
                 document.querySelector(".puerta_pasajero_ida").innerHTML = "<strong>Puerta</strong>" + " " + 4;
                 document.querySelector(".destino_pasajero_ida").innerHTML = "<strong>Destino</strong>" + " " + document.getElementById('destino').value;
+
+                generarQR(document.getElementById('destino').value, 'qrcode-ida')
+
             } else {
 
                 // Bording Pass de ida
@@ -486,6 +489,9 @@ enviar_pago.addEventListener("click", () => {
                 document.querySelector(".asiento_pasajero_vuelta").innerHTML = "<strong>Asiento:</strong>" + " " + asiento_seleccionado_vuelta.id;
                 document.querySelector(".puerta_pasajero_vuelta").innerHTML = "<strong>Puerta</strong>" + " " + 10;
                 document.querySelector(".destino_pasajero_vuelta").innerHTML = "<strong>Destino</strong>" + " " + document.getElementById('origen').value;
+            
+                generarQR(document.getElementById('origen').value, 'qrcode-vuelta')
+                
             }
 
 
@@ -612,7 +618,7 @@ document.getElementById('openModal').addEventListener('click', function() {
     const pesoEquipaje_bodega = parseFloat(document.getElementById('bodega').value) || 0; // Peso del equipaje de bodega en kg
     const limitePeso_mano = 10; // Límite de peso permitido en kg
     const limitePeso_bodega = 23; // Límite de peso permitido en kg
-    const multaPorExceso = 50; // Multa por cada kg de exceso
+    const multaPorExceso = 5; // Multa por cada kg de exceso
 
     let multa_mano = 0;
     let multa_bodega = 0;
@@ -661,6 +667,17 @@ window.addEventListener('click', function(event) {
         document.getElementById('myModal').style.display = "none";
     }
 });
+
+
+// funcion para generar codigo qr del origen y destino del pasajero
+function generarQR(destino, elementoId) {
+    const url = `https://www.google.com/maps?q=${encodeURIComponent(destino)}`;
+    const qrcode = new QRCode(document.getElementById(elementoId), {
+        width: 100,
+        height: 100
+    });
+    qrcode.makeCode(url);
+}
 
 
 
