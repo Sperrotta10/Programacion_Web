@@ -1165,58 +1165,70 @@
 
     <!-- ================================================  PAGINA DEl Bording pass   ========================================================= -->
 
-    <div class="sectiones visible">
-        <div class="boarding-pass" id="boarding-pass-ida">
-            <div class="header">
-                <div class="logo">Angel Airlines</div>
-                <div class="flight-info-bording">
-                    <p><strong>Vuelo:</strong> 1234</p>
-                    <p><strong>Fecha:</strong> 10 de Agosto, 2024</p>
-                    <p><strong>Hora:</strong> 10:00 AM</p>
+    <div class="main-container sectiones visible">
+        <div class="boarding-pass-container">
+            <div class="sectiones visible">
+                <h2 class="encabezado">Boarding Pass Ida</h2>
+                <div class="boarding-pass" id="boarding-pass-ida">
+                    <div class="header">
+                        <div class="logo">Angel Airlines</div>
+                        <div class="flight-info-bording">
+                            <p><strong>Vuelo:</strong> 1234</p>
+                            <p><strong>Fecha:</strong> 10 de Agosto, 2024</p>
+                            <p><strong>Hora:</strong> 10:00 AM</p>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div class="details">
+                            <p><strong>Nombre:</strong> Juan Pérez</p>
+                            <p><strong>Asiento:</strong> 12A</p>
+                            <p><strong>Puerta:</strong> 5</p>
+                            <p><strong>Destino:</strong> Berlín</p>
+                        </div>
+                        <div class="barcode" id="qrcode-ida"></div>
+                    </div>
+                    <div class="footer">
+                        <p>¡Gracias por volar con nosotros!</p>
+                    </div>
                 </div>
             </div>
-            <div class="body">
-                <div class="details">
-                    <p><strong>Nombre:</strong> Juan Pérez</p>
-                    <p><strong>Asiento:</strong> 12A</p>
-                    <p><strong>Puerta:</strong> 5</p>
-                    <p><strong>Destino:</strong> Berlín</p>
+    
+            <div class="sectiones pasaje visible">
+                <h2 class="encabezado">Boarding Pass Vuelta</h2>
+                <div class="boarding-pass" id="boarding-pass-vuelta">
+                    <div class="header">
+                        <div class="logo">Angel Airlines</div>
+                        <div class="flight-info-bording">
+                            <p><strong>Vuelo:</strong> 5678</p>
+                            <p><strong>Fecha:</strong> 20 de Agosto, 2024</p>
+                            <p><strong>Hora:</strong> 4:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div class="details">
+                            <p><strong>Nombre:</strong> Juan Pérez</p>
+                            <p><strong>Asiento:</strong> 14C</p>
+                            <p><strong>Puerta:</strong> 8</p>
+                            <p><strong>Destino:</strong> Madrid</p>
+                        </div>
+                        <div class="barcode" id="qrcode-vuelta"></div>
+                    </div>
+                    <div class="footer">
+                        <p>¡Gracias por volar con nosotros!</p>
+                    </div>
                 </div>
-                <div class="barcode" id="qrcode-ida"></div>
             </div>
-            <div class="footer">
-                <p>¡Gracias por volar con nosotros!</p>
-            </div>
+        </div>
+    
+        <div class="button-container">
+            <button class="btn_continuar">Continuar</button>
         </div>
 
     </div>
+    
 
-    <div class="sectiones pasaje visible">
-
-        <div class="boarding-pass" id="boarding-pass-vuelta">
-            <div class="header">
-                <div class="logo">Angel Airlines</div>
-                <div class="flight-info-bording">
-                    <p><strong>Vuelo:</strong> 5678</p>
-                    <p><strong>Fecha:</strong> 20 de Agosto, 2024</p>
-                    <p><strong>Hora:</strong> 4:00 PM</p>
-                </div>
-            </div>
-            <div class="body">
-                <div class="details">
-                    <p><strong>Nombre:</strong> Juan Pérez</p>
-                    <p><strong>Asiento:</strong> 14C</p>
-                    <p><strong>Puerta:</strong> 8</p>
-                    <p><strong>Destino:</strong> Madrid</p>
-                </div>
-                <div class="barcode" id="qrcode-vuelta"></div>
-            </div>
-            <div class="footer">
-                <p>¡Gracias por volar con nosotros!</p>
-            </div>
-        </div>
-    </div>
-
+    
+    
 
     <!-- codigo telefonicos telefonos-->
     <!--<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.1.0/build/js/intlTelInput.min.js"></script>-->
