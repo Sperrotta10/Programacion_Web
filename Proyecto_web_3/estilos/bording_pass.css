@@ -22,9 +22,22 @@ body {
     background-color: #f0f0f0;
 }
 
-.pasaje {
-    margin-left: 20px;
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente */
+    padding: 20px;
 }
+
+
+.boarding-pass-container {
+    display: flex;
+    justify-content: space-between; /* Alinea los boarding passes con espacio entre ellos */
+    flex-wrap: wrap; /* Permite que los boarding passes se ajusten en una nueva línea si es necesario */
+    gap: 20px; /* Espacio entre los boarding passes */
+    width: 100%; /* Asegúrate de que el contenedor ocupe todo el ancho disponible */
+}
+
 
 .boarding-pass {
     background: #ffffff;
@@ -108,3 +121,51 @@ body {
 .boarding-pass .footer p {
     margin: 0;
 }
+
+
+.encabezado {
+    font-size: 1.5rem; /* Tamaño de fuente adecuado para un subtítulo */
+    color: #333; /* Color de texto oscuro para buena legibilidad */
+    text-align: center; /* Centra el texto */
+    margin: 20px 0; /* Espaciado arriba y abajo */
+    padding: 10px; /* Espaciado interno para que no esté pegado al borde */
+    background-color: #f4f4f4; /* Fondo claro para resaltar el subtítulo */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para un efecto de profundidad */
+  }
+  
+.encabezado::before {
+    content: "✈️ "; /* Agrega un ícono de avión antes del texto para un toque visual */
+    font-size: 1.2rem; /* Tamaño del ícono para que sea proporcional */
+}
+
+
+/* Boton del Bording pass */
+
+.btn_continuar {
+    width: 200px;
+    background-color: #007bff; /* Color de fondo similar al de la cabecera para cohesión */
+    color: #ffffff; /* Color de texto blanco para contraste */
+    font-size: 1rem; /* Tamaño de fuente adecuado para botones */
+    padding: 10px 20px; /* Espaciado interno para el botón */
+    border: none; /* Sin borde para un diseño limpio */
+    border-radius: 5px; /* Bordes redondeados para suavizar el diseño */
+    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves para efectos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para profundidad */
+    text-align: center; /* Centra el texto */
+}
+
+.btn_continuar:hover {
+    background-color: #0056b3; /* Color de fondo más oscuro al pasar el ratón */
+}
+
+.btn_continuar:active {
+    transform: scale(0.98); /* Efecto de presión cuando se hace clic */
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 40px; /* Ajusta el margen según sea necesario */
+}
+
